@@ -56,7 +56,9 @@ val scanner = EfentoBluetooth.scanner(
 )
 
 scanner.deviceFlow()
-       .catch { e -> log("Exception during scan", e) }
+       .catch { exception ->
+           //handle exception here
+       }
        .collect { efentoDevice -> 
            //handle scanned device here
        }
@@ -68,9 +70,9 @@ Define connection parameters and execute commands as needed.
 
 ```kotlin
 val connection = EfentoBluetooth.sensorConnection(
-        deviceID = "28:2C:02:40:2F:9C",
-        bluetoothMacAddress = BluetoothMacAddress("28:2C:02:40:2F:9C"),
-        resetCode = 5923
+        deviceID = "00010203-0405-0607-0809-0a0b0c0d0e0f",
+        bluetoothMacAddress = BluetoothMacAddress("28:2C:02:4F:FF:FF"),
+        resetCode = 1111
         //other connection parameters
     )
 
