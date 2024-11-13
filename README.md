@@ -74,7 +74,7 @@ val connection = EfentoBluetooth.sensorConnection(
         //other connection parameters
     )
 
-connection.run {
+connection.runCatching {
     connect()
 
     val measurements = commands.downloadMeasurements() { progress ->
@@ -82,6 +82,8 @@ connection.run {
     }
 
     disconnect()
+}.onFailure { exception ->
+    //handle exception here
 }
 ```
 
