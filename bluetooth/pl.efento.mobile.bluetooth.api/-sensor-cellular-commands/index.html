@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>SensorCellularCommands</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../../index.html">
+                            bluetooth
+                    </a>
+            </div>
+            <div class="library-version">
+1.0.2            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":bluetooth:dokkaHtml/commonMain">common</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.api/SensorCellularCommands///PointingToDeclaration//1436726670">
+  <div class="breadcrumbs"><a href="../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../index.html">pl.efento.mobile.bluetooth.api</a><span class="delimiter">/</span><span class="current">SensorCellularCommands</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Sensor</span><wbr></wbr><span>Cellular</span><wbr></wbr><span><span>Commands</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">SensorCellularCommands</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="713075194%2FFunctions%2F1436726670" anchor-label="disableModem" id="713075194%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="disable-modem.html"><span>disable</span><wbr></wbr><span><span>Modem</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="713075194%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="disable-modem.html"><span class="token function">disableModem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">disableTimeSeconds<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Detach the sensor from the network and turn the modem off for a defined period of time (max 7 days)</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1451191160%2FFunctions%2F1436726670" anchor-label="enterInstallationMode" id="1451191160%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="enter-installation-mode.html"><span>enter</span><wbr></wbr><span>Installation</span><wbr></wbr><span><span>Mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1451191160%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="enter-installation-mode.html"><span class="token function">enterInstallationMode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Enter installation mode. In this mode, installation data is updated using notifications flow.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1186190192%2FFunctions%2F1436726670" anchor-label="exitInstallationMode" id="-1186190192%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="exit-installation-mode.html"><span>exit</span><wbr></wbr><span>Installation</span><wbr></wbr><span><span>Mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1186190192%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="exit-installation-mode.html"><span class="token function">exitInstallationMode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Exit installation mode. After exit sensor will erase all measurements stored.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1430993456%2FFunctions%2F1436726670" anchor-label="getApnConfiguration" id="-1430993456%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-apn-configuration.html"><span>get</span><wbr></wbr><span>Apn</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1430993456%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-apn-configuration.html"><span class="token function">getApnConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-apn/index.html">Apn</a></div><div class="brief "><p class="paragraph">Get network APN configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-171986957%2FFunctions%2F1436726670" anchor-label="getCellularBands" id="-171986957%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cellular-bands.html"><span>get</span><wbr></wbr><span>Cellular</span><wbr></wbr><span><span>Bands</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-171986957%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-cellular-bands.html"><span class="token function">getCellularBands</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cellular-band/index.html">CellularBand</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Gets cellular bands from sensor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1657611531%2FFunctions%2F1436726670" anchor-label="getCellularConfiguration" id="1657611531%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cellular-configuration.html"><span>get</span><wbr></wbr><span>Cellular</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1657611531%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-cellular-configuration.html"><span class="token function">getCellularConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cellular-configuration/index.html">CellularConfiguration</a></div><div class="brief "><p class="paragraph">Get the cellular configuration from sensor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="997281138%2FFunctions%2F1436726670" anchor-label="getCellularModuleStatistics" id="997281138%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cellular-module-statistics.html"><span>get</span><wbr></wbr><span>Cellular</span><wbr></wbr><span>Module</span><wbr></wbr><span><span>Statistics</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="997281138%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-cellular-module-statistics.html"><span class="token function">getCellularModuleStatistics</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cellular-module-statistics/index.html">CellularModuleStatistics</a></div><div class="brief "><p class="paragraph">Gets cellular module statistics from sensor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-58616491%2FFunctions%2F1436726670" anchor-label="getCellularNetworkStatus" id="-58616491%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cellular-network-status.html"><span>get</span><wbr></wbr><span>Cellular</span><wbr></wbr><span>Network</span><wbr></wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-58616491%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-cellular-network-status.html"><span class="token function">getCellularNetworkStatus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cellular-network-status/index.html">CellularNetworkStatus</a></div><div class="brief "><p class="paragraph">Gets cellular network status from sensor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-269554708%2FFunctions%2F1436726670" anchor-label="getCloudAuthentication" id="-269554708%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cloud-authentication.html"><span>get</span><wbr></wbr><span>Cloud</span><wbr></wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-269554708%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-cloud-authentication.html"><span class="token function">getCloudAuthentication</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cloud-authentication/index.html">CloudAuthentication</a></div><div class="brief "><p class="paragraph">Get cloud authentication features</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1262457265%2FFunctions%2F1436726670" anchor-label="getCloudTokenConfiguration" id="1262457265%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cloud-token-configuration.html"><span>get</span><wbr></wbr><span>Cloud</span><wbr></wbr><span>Token</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1262457265%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-cloud-token-configuration.html"><span class="token function">getCloudTokenConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cloud-token-configuration/index.html">CloudTokenConfiguration</a></div><div class="brief "><p class="paragraph">Get cloud token configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-663318276%2FFunctions%2F1436726670" anchor-label="getCoapEndpoint" id="-663318276%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-coap-endpoint.html"><span>get</span><wbr></wbr><span>Coap</span><wbr></wbr><span><span>Endpoint</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-663318276%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-coap-endpoint.html"><span class="token function">getCoapEndpoint</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-coap-endpoint/-type/index.html">CoapEndpoint.Type</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-coap-endpoint/index.html">CoapEndpoint</a></div><div class="brief "><p class="paragraph">Get CoAP endpoint</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1045650028%2FFunctions%2F1436726670" anchor-label="getCustomPLMNCode" id="-1045650028%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-custom-p-l-m-n-code.html"><span>get</span><wbr></wbr><span>Custom</span><wbr></wbr><span><span>PLMNCode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1045650028%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-custom-p-l-m-n-code.html"><span class="token function">getCustomPLMNCode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-plmn/index.html">Plmn</a></div><div class="brief "><p class="paragraph">Get PLMN (Public Land Mobile Network) operator code</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1215353222%2FFunctions%2F1436726670" anchor-label="getDnsConfiguration" id="1215353222%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-dns-configuration.html"><span>get</span><wbr></wbr><span>Dns</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1215353222%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-dns-configuration.html"><span class="token function">getDnsConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-dns-configuration/index.html">DnsConfiguration</a></div><div class="brief "><p class="paragraph">Get DNS configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1892417451%2FFunctions%2F1436726670" anchor-label="getDnsServer" id="1892417451%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-dns-server.html"><span>get</span><wbr></wbr><span>Dns</span><wbr></wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1892417451%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-dns-server.html"><span class="token function">getDnsServer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-ip-address/index.html">IpAddress</a></div><div class="brief "><p class="paragraph">Get DNS server IP address</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1138097207%2FFunctions%2F1436726670" anchor-label="getModemATLogState" id="-1138097207%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-modem-a-t-log-state.html"><span>get</span><wbr></wbr><span>Modem</span><wbr></wbr><span>ATLog</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1138097207%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-modem-a-t-log-state.html"><span class="token function">getModemATLogState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Get modem AT commands log state</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1716141930%2FFunctions%2F1436726670" anchor-label="getModemLogState" id="-1716141930%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-modem-log-state.html"><span>get</span><wbr></wbr><span>Modem</span><wbr></wbr><span>Log</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1716141930%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-modem-log-state.html"><span class="token function">getModemLogState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-modem-log-state/index.html">ModemLogState</a></div><div class="brief "><p class="paragraph">Get modem log state</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-35187195%2FFunctions%2F1436726670" anchor-label="getNetworkTroubleshooting" id="-35187195%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-network-troubleshooting.html"><span>get</span><wbr></wbr><span>Network</span><wbr></wbr><span><span>Troubleshooting</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-35187195%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-network-troubleshooting.html"><span class="token function">getNetworkTroubleshooting</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Get network troubleshooting configuration when communication with server is invalid</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1791982108%2FFunctions%2F1436726670" anchor-label="getServerCommunicationConfiguration" id="1791982108%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-server-communication-configuration.html"><span>get</span><wbr></wbr><span>Server</span><wbr></wbr><span>Communication</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1791982108%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-server-communication-configuration.html"><span class="token function">getServerCommunicationConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-server-communication-configuration/index.html">ServerCommunicationConfiguration</a></div><div class="brief "><p class="paragraph">Get server communication configuration.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-231947687%2FFunctions%2F1436726670" anchor-label="getServerConfigurations" id="-231947687%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-server-configurations.html"><span>get</span><wbr></wbr><span>Server</span><wbr></wbr><span><span>Configurations</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-231947687%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-server-configurations.html"><span class="token function">getServerConfigurations</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-server-configuration/index.html">ServerConfiguration</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Get server configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1553079316%2FFunctions%2F1436726670" anchor-label="getServerTransferLimit" id="-1553079316%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-server-transfer-limit.html"><span>get</span><wbr></wbr><span>Server</span><wbr></wbr><span>Transfer</span><wbr></wbr><span><span>Limit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1553079316%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-server-transfer-limit.html"><span class="token function">getServerTransferLimit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-transfer-limit-configuration/index.html">TransferLimitConfiguration</a></div><div class="brief "><p class="paragraph">Get transfer limit to the server over a cellular module (initial number of tokens and initial timer settings).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-218185821%2FFunctions%2F1436726670" anchor-label="getSupervisionPeriod" id="-218185821%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-supervision-period.html"><span>get</span><wbr></wbr><span>Supervision</span><wbr></wbr><span><span>Period</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-218185821%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-supervision-period.html"><span class="token function">getSupervisionPeriod</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Get supervision period</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="538977842%2FFunctions%2F1436726670" anchor-label="setApnConfiguration" id="538977842%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-apn-configuration.html"><span>set</span><wbr></wbr><span>Apn</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="538977842%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-apn-configuration.html"><span class="token function">setApnConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">apn<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-apn/index.html">Apn</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set network APN configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="933194529%2FFunctions%2F1436726670" anchor-label="setCellularBands" id="933194529%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-cellular-bands.html"><span>set</span><wbr></wbr><span>Cellular</span><wbr></wbr><span><span>Bands</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="933194529%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-cellular-bands.html"><span class="token function">setCellularBands</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">bands<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cellular-band/index.html">CellularBand</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set bands enabled on the sensor</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-992746094%2FFunctions%2F1436726670" anchor-label="setCellularConfiguration" id="-992746094%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-cellular-configuration.html"><span>set</span><wbr></wbr><span>Cellular</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-992746094%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-cellular-configuration.html"><span class="token function">setCellularConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cellularConfiguration<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cellular-configuration/index.html">CellularConfiguration</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set the cellular configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1931304144%2FFunctions%2F1436726670" anchor-label="setCloudAuthentication" id="1931304144%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-cloud-authentication.html"><span>set</span><wbr></wbr><span>Cloud</span><wbr></wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1931304144%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-cloud-authentication.html"><span class="token function">setCloudAuthentication</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cloudAuthentication<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cloud-authentication/index.html">CloudAuthentication</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set cloud authentication features</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1341346246%2FFunctions%2F1436726670" anchor-label="setCloudTokenConfiguration" id="1341346246%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-cloud-token-configuration.html"><span>set</span><wbr></wbr><span>Cloud</span><wbr></wbr><span>Token</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1341346246%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-cloud-token-configuration.html"><span class="token function">setCloudTokenConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cloudTokenConfiguration<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-cloud-token-configuration/index.html">CloudTokenConfiguration</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set cloud token configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2051062210%2FFunctions%2F1436726670" anchor-label="setCoapEndpoint" id="-2051062210%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-coap-endpoint.html"><span>set</span><wbr></wbr><span>Coap</span><wbr></wbr><span><span>Endpoint</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2051062210%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-coap-endpoint.html"><span class="token function">setCoapEndpoint</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">coapEndpoint<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-coap-endpoint/index.html">CoapEndpoint</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set CoAP endpoint</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2119886196%2FFunctions%2F1436726670" anchor-label="setCustomPlmnCode" id="-2119886196%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-custom-plmn-code.html"><span>set</span><wbr></wbr><span>Custom</span><wbr></wbr><span>Plmn</span><wbr></wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2119886196%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-custom-plmn-code.html"><span class="token function">setCustomPlmnCode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">plmn<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-plmn/index.html">Plmn</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set PLMN (Public Land Mobile Network) operator code</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1787466078%2FFunctions%2F1436726670" anchor-label="setDnsConfiguration" id="1787466078%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-dns-configuration.html"><span>set</span><wbr></wbr><span>Dns</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1787466078%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-dns-configuration.html"><span class="token function">setDnsConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dnsConfiguration<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-dns-configuration/index.html">DnsConfiguration</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set DNS configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="723773857%2FFunctions%2F1436726670" anchor-label="setDnsServer" id="723773857%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-dns-server.html"><span>set</span><wbr></wbr><span>Dns</span><wbr></wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="723773857%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-dns-server.html"><span class="token function">setDnsServer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dnsServerIp<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-ip-address/index.html">IpAddress</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set DNS server IP address</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="71251355%2FFunctions%2F1436726670" anchor-label="setModemATLogState" id="71251355%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-modem-a-t-log-state.html"><span>set</span><wbr></wbr><span>Modem</span><wbr></wbr><span>ATLog</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="71251355%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-modem-a-t-log-state.html"><span class="token function">setModemATLogState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">isLogEnabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Enable/disable modem at commands log state</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2116760073%2FFunctions%2F1436726670" anchor-label="setModemLogState" id="-2116760073%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-modem-log-state.html"><span>set</span><wbr></wbr><span>Modem</span><wbr></wbr><span>Log</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2116760073%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-modem-log-state.html"><span class="token function">setModemLogState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">modemLogConfiguration<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-modem-log-configuration/index.html">ModemLogConfiguration</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set modem log configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="57717831%2FFunctions%2F1436726670" anchor-label="setNetworkTroubleshooting" id="57717831%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-network-troubleshooting.html"><span>set</span><wbr></wbr><span>Network</span><wbr></wbr><span><span>Troubleshooting</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="57717831%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-network-troubleshooting.html"><span class="token function">setNetworkTroubleshooting</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">isTroubleshootingEnabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set network troubleshooting configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="894192414%2FFunctions%2F1436726670" anchor-label="setServerCommunicationConfiguration" id="894192414%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-server-communication-configuration.html"><span>set</span><wbr></wbr><span>Server</span><wbr></wbr><span>Communication</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="894192414%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-server-communication-configuration.html"><span class="token function">setServerCommunicationConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">serverCommunicationConfiguration<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-server-communication-configuration/index.html">ServerCommunicationConfiguration</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set server communication configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2072377852%2FFunctions%2F1436726670" anchor-label="setServerConfiguration" id="-2072377852%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-server-configuration.html"><span>set</span><wbr></wbr><span>Server</span><wbr></wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2072377852%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-server-configuration.html"><span class="token function">setServerConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">serverConfiguration<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-server-configuration/index.html">ServerConfiguration</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set server configuration</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1787203155%2FFunctions%2F1436726670" anchor-label="setServerTransferLimit" id="1787203155%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-server-transfer-limit.html"><span>set</span><wbr></wbr><span>Server</span><wbr></wbr><span>Transfer</span><wbr></wbr><span><span>Limit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1787203155%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-server-transfer-limit.html"><span class="token function">setServerTransferLimit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">transferLimitConfiguration<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular/-transfer-limit-configuration/index.html">TransferLimitConfiguration</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Request new transfer limit parameters (initial number of tokens and initial timer settings). Transfer limit determines the initial number of tokens. The token is needed to get a connection and sending measurements via the cellular network. The cost of each such transfer is one token. New token is added every period configured in the transfer limit timer (expressed in seconds).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-991349350%2FFunctions%2F1436726670" anchor-label="setSupervisionPeriod" id="-991349350%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-supervision-period.html"><span>set</span><wbr></wbr><span>Supervision</span><wbr></wbr><span><span>Period</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-991349350%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-supervision-period.html"><span class="token function">setSupervisionPeriod</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">supervisionPeriod<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set supervision period</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2099972444%2FFunctions%2F1436726670" anchor-label="triggerCommunicationWithServer" id="2099972444%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="trigger-communication-with-server.html"><span>trigger</span><wbr></wbr><span>Communication</span><wbr></wbr><span>With</span><wbr></wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2099972444%2FFunctions%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="trigger-communication-with-server.html"><span class="token function">triggerCommunicationWithServer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">updateProgress<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>progress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-progress/index.html">Progress</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Trigger communication with the server over the cellular network</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
