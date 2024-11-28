@@ -1,0 +1,55 @@
+*.iml
+.gradle
+/local.properties
+.idea
+/build
+*/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Mac OS X
+*.DS_Store
+
+# CocoaPods - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
+Pods/
+*.podspec
+
+### Xcode ###
+xcuserdata/
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+
+# Generated files
+*.o
+*.pyc
+
+
+#Python modules
+MANIFEST
+dist/
+build/
+
+# Backup files
+*~.nib
+
+/protobuf-codegen/generated*
+
+# Kotlin 2.0
+.kotlin
