@@ -1,0 +1,46 @@
+[versions]
+# Plugins
+compileSdk = "35"
+targetSdk = "35"
+minSdk = "21"
+agp = "8.7.2"
+kotlin = "2.0.21"
+jetbrains-compose-plugin = "1.7.0"
+
+#Bluetooth
+bluetooth = "1.0.2"
+
+# Kotlin
+coroutines = "1.9.0"
+
+# Koin
+koin = "4.0.0"
+
+# Android
+androidx-activity-compose = "1.9.3"
+androidx-lifecycle = "2.8.3"
+
+[libraries]
+#Bluetooth
+efento-bluetooth = { module = "pl.efento.mobile:bluetooth", version.ref = "bluetooth" }
+
+# Kotlin
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+
+#Koin
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
+koin-composeVM = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+
+# Android
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
+androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbrains-compose-plugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
