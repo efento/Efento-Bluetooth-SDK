@@ -12,7 +12,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
         maven {
             name = "efentoMaven"
             url = uri("https://maven.efento.io/releases")

@@ -37,7 +37,7 @@ kotlin {
         iosArm64(),
     ).forEach {
         it.binaries.framework {
-            baseName = "bluetooth"
+            baseName = "shared"
             isStatic = true
         }
     }
