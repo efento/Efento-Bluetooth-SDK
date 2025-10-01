@@ -46,7 +46,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-1.1.0        </div>
+2.0.0        </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
                 <button class="platform-tag platform-selector common-like" data-active=""
@@ -108,24 +108,24 @@
   <div class="breadcrumbs"><a href="../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../index.html">pl.efento.mobile.bluetooth.model.sensor.cellular</a><span class="delimiter">/</span><span class="current">CellularNetworkStatus</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Cellular</span><wbr></wbr><span>Network</span><wbr></wbr><span><span>Status</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">CellularNetworkStatus</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>supportedTechnologies<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-supported-technology/index.html">CellularNetworkStatus.SupportedTechnology</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>currentTechnology<span class="token operator">: </span><a href="-current-technology/index.html">CellularNetworkStatus.CurrentTechnology</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>registrationStatus<span class="token operator">: </span><a href="../-registration-status/index.html">RegistrationStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signalStrength<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>registrationRejectCause<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>lastCommunicationTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>communicationStatus<span class="token operator">: </span><a href="-communication-status/index.html">CellularNetworkStatus.CommunicationStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>simCardStatus<span class="token operator">: </span><a href="-sim-card-status/index.html">CellularNetworkStatus.SimCardStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ipAddress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-ip-address/index.html">IpAddress</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>cellId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>trackingAreaCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>lastStatusCheckTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>secondsSinceLastReset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>imei<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>iccid<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><p class="paragraph">Represents cellular network statistics</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">CellularNetworkStatus</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>commandVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverCommunicationTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverCommunicationStatus<span class="token operator">: </span><a href="../-sever-communication-status/index.html">SeverCommunicationStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>supportedTechnologies<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="-technology/index.html">CellularNetworkStatus.Technology</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>currentTechnology<span class="token operator">: </span><a href="-technology/index.html">CellularNetworkStatus.Technology</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>simCardStatus<span class="token operator">: </span><a href="-sim-card-status/index.html">CellularNetworkStatus.SimCardStatus</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>registrationStatus<span class="token operator">: </span><a href="../-registration-status/index.html">RegistrationStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>registrationRejectCause<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>successfulRegistrationTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ipAddress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-ip-address/index.html">IpAddress</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>rplmn<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>trackingAreaCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>cellId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">Represents network status of a cellular modem</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="466380129%2FConstructors%2F1436726670" anchor-label="CellularNetworkStatus" id="466380129%2FConstructors%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+        <div class="table"><a data-name="-1330586827%2FConstructors%2F1436726670" anchor-label="CellularNetworkStatus" id="-1330586827%2FConstructors%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
           <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-cellular-network-status.html"><span>Cellular</span><wbr></wbr><span>Network</span><wbr></wbr><span><span>Status</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="466380129%2FConstructors%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1330586827%2FConstructors%2F1436726670"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">supportedTechnologies<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-supported-technology/index.html">CellularNetworkStatus.SupportedTechnology</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">currentTechnology<span class="token operator">: </span><a href="-current-technology/index.html">CellularNetworkStatus.CurrentTechnology</a><span class="token punctuation">, </span></span><span class="parameter ">registrationStatus<span class="token operator">: </span><a href="../-registration-status/index.html">RegistrationStatus</a><span class="token punctuation">, </span></span><span class="parameter ">signalStrength<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">registrationRejectCause<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">lastCommunicationTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">communicationStatus<span class="token operator">: </span><a href="-communication-status/index.html">CellularNetworkStatus.CommunicationStatus</a><span class="token punctuation">, </span></span><span class="parameter ">simCardStatus<span class="token operator">: </span><a href="-sim-card-status/index.html">CellularNetworkStatus.SimCardStatus</a><span class="token punctuation">, </span></span><span class="parameter ">ipAddress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-ip-address/index.html">IpAddress</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">cellId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">trackingAreaCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">lastStatusCheckTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">secondsSinceLastReset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">imei<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">iccid<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commandVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">serverCommunicationTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">serverCommunicationStatus<span class="token operator">: </span><a href="../-sever-communication-status/index.html">SeverCommunicationStatus</a><span class="token punctuation">, </span></span><span class="parameter ">supportedTechnologies<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="-technology/index.html">CellularNetworkStatus.Technology</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">currentTechnology<span class="token operator">: </span><a href="-technology/index.html">CellularNetworkStatus.Technology</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">simCardStatus<span class="token operator">: </span><a href="-sim-card-status/index.html">CellularNetworkStatus.SimCardStatus</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">registrationStatus<span class="token operator">: </span><a href="../-registration-status/index.html">RegistrationStatus</a><span class="token punctuation">, </span></span><span class="parameter ">registrationRejectCause<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">successfulRegistrationTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ipAddress<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-ip-address/index.html">IpAddress</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">rplmn<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">trackingAreaCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">cellId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -134,37 +134,7 @@
       </div>
       <div data-togglable="TYPE">
         <h2 class="">Types</h2>
-        <div class="table"><a data-name="595044876%2FClasslikes%2F1436726670" anchor-label="CommunicationStatus" id="595044876%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-communication-status/index.html"><span>Communication</span><wbr></wbr><span><span>Status</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="595044876%2FClasslikes%2F1436726670"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-communication-status/index.html">CommunicationStatus</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-communication-status/index.html">CellularNetworkStatus.CommunicationStatus</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Represents communication status</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="1777130863%2FClasslikes%2F1436726670" anchor-label="CurrentTechnology" id="1777130863%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-current-technology/index.html"><span>Current</span><wbr></wbr><span><span>Technology</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1777130863%2FClasslikes%2F1436726670"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-current-technology/index.html">CurrentTechnology</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-current-technology/index.html">CellularNetworkStatus.CurrentTechnology</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Represents current technology</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1622808197%2FClasslikes%2F1436726670" anchor-label="SimCardStatus" id="-1622808197%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+        <div class="table"><a data-name="-1622808197%2FClasslikes%2F1436726670" anchor-label="SimCardStatus" id="-1622808197%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
           <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
@@ -179,17 +149,17 @@
               </div>
             </div>
           </div>
-<a data-name="2132565338%2FClasslikes%2F1436726670" anchor-label="SupportedTechnology" id="2132565338%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+<a data-name="-721081086%2FClasslikes%2F1436726670" anchor-label="Technology" id="-721081086%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
           <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="-supported-technology/index.html"><span>Supported</span><wbr></wbr><span><span>Technology</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2132565338%2FClasslikes%2F1436726670"></span>
+                  <div><a href="-technology/index.html"><span><span>Technology</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-721081086%2FClasslikes%2F1436726670"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-supported-technology/index.html">SupportedTechnology</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-supported-technology/index.html">CellularNetworkStatus.SupportedTechnology</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Represents supported technology</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-technology/index.html">Technology</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-technology/index.html">CellularNetworkStatus.Technology</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Represents supported technology</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -208,22 +178,22 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="cell-id.html">cellId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">physical ID of the cell providing service to the module or null if not registered</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="cell-id.html">cellId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">physical ID of the cell providing service to the module or <code class="lang-kotlin">null</code> if not registered</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1267918329%2FProperties%2F1436726670" anchor-label="communicationStatus" id="1267918329%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+<a data-name="-900638164%2FProperties%2F1436726670" anchor-label="commandVersion" id="-900638164%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
           <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="communication-status.html"><span>communication</span><wbr></wbr><span><span>Status</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1267918329%2FProperties%2F1436726670"></span>
+                  <div><a href="command-version.html"><span>command</span><wbr></wbr><span><span>Version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-900638164%2FProperties%2F1436726670"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="communication-status.html">communicationStatus</a><span class="token operator">: </span><a href="-communication-status/index.html">CellularNetworkStatus.CommunicationStatus</a></div><div class="brief "><p class="paragraph">communication status</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="command-version.html">commandVersion</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">version of the command used to retrieve this status</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -238,37 +208,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="current-technology.html">currentTechnology</a><span class="token operator">: </span><a href="-current-technology/index.html">CellularNetworkStatus.CurrentTechnology</a></div><div class="brief "><p class="paragraph">current technology</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-603605379%2FProperties%2F1436726670" anchor-label="iccid" id="-603605379%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="iccid.html"><span><span>iccid</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-603605379%2FProperties%2F1436726670"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="iccid.html">iccid</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">ICCID (Integrated Circuit Card Identifier) of the SIM card</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="1814728657%2FProperties%2F1436726670" anchor-label="imei" id="1814728657%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="imei.html"><span><span>imei</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1814728657%2FProperties%2F1436726670"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="imei.html">imei</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">IMEI (International Mobile Equipment Identity) of the device</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="current-technology.html">currentTechnology</a><span class="token operator">: </span><a href="-technology/index.html">CellularNetworkStatus.Technology</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">current technology or <code class="lang-kotlin">null</code> if unknown</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -283,37 +223,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="ip-address.html">ipAddress</a><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-ip-address/index.html">IpAddress</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">ip address assigned to modem after registration or null if not assigned</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="341353283%2FProperties%2F1436726670" anchor-label="lastCommunicationTimestamp" id="341353283%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="last-communication-timestamp.html"><span>last</span><wbr></wbr><span>Communication</span><wbr></wbr><span><span>Timestamp</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="341353283%2FProperties%2F1436726670"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="last-communication-timestamp.html">lastCommunicationTimestamp</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">last communication timestamp or null if communication has not been made yet</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="181938467%2FProperties%2F1436726670" anchor-label="lastStatusCheckTimestamp" id="181938467%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="last-status-check-timestamp.html"><span>last</span><wbr></wbr><span>Status</span><wbr></wbr><span>Check</span><wbr></wbr><span><span>Timestamp</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="181938467%2FProperties%2F1436726670"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="last-status-check-timestamp.html">lastStatusCheckTimestamp</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">timestamp of last status check of null if not performed yet</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="ip-address.html">ipAddress</a><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-ip-address/index.html">IpAddress</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">ip address assigned to modem after registration or <code class="lang-kotlin">null</code> if not assigned</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -328,7 +238,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="registration-reject-cause.html">registrationRejectCause</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">error code for registration rejection</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="registration-reject-cause.html">registrationRejectCause</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">error code for registration rejection</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -348,32 +258,47 @@
               </div>
             </div>
           </div>
-<a data-name="272582275%2FProperties%2F1436726670" anchor-label="secondsSinceLastReset" id="272582275%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+<a data-name="1782652466%2FProperties%2F1436726670" anchor-label="rplmn" id="1782652466%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
           <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="seconds-since-last-reset.html"><span>seconds</span><wbr></wbr><span>Since</span><wbr></wbr><span>Last</span><wbr></wbr><span><span>Reset</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="272582275%2FProperties%2F1436726670"></span>
+                  <div><a href="rplmn.html"><span><span>rplmn</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1782652466%2FProperties%2F1436726670"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="seconds-since-last-reset.html">secondsSinceLastReset</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">seconds since last reset</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="rplmn.html">rplmn</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">RPLMN (Registered Public Land Mobile Network) which is the unique code that each operator assigns to each of their networks or <code class="lang-kotlin">null</code> if not registered</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1691406928%2FProperties%2F1436726670" anchor-label="signalStrength" id="-1691406928%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+<a data-name="1629111772%2FProperties%2F1436726670" anchor-label="serverCommunicationStatus" id="1629111772%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
           <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="signal-strength.html"><span>signal</span><wbr></wbr><span><span>Strength</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1691406928%2FProperties%2F1436726670"></span>
+                  <div><a href="server-communication-status.html"><span>server</span><wbr></wbr><span>Communication</span><wbr></wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1629111772%2FProperties%2F1436726670"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="signal-strength.html">signalStrength</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">signal power expressed in dBm or null if not available</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="server-communication-status.html">serverCommunicationStatus</a><span class="token operator">: </span><a href="../-sever-communication-status/index.html">SeverCommunicationStatus</a></div><div class="brief "><p class="paragraph">status of communication with server</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-398154762%2FProperties%2F1436726670" anchor-label="serverCommunicationTimestamp" id="-398154762%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="server-communication-timestamp.html"><span>server</span><wbr></wbr><span>Communication</span><wbr></wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-398154762%2FProperties%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="server-communication-timestamp.html">serverCommunicationTimestamp</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">timestamp of last communication with server or <code class="lang-kotlin">null</code> if not communicated yet</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -388,7 +313,22 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sim-card-status.html">simCardStatus</a><span class="token operator">: </span><a href="-sim-card-status/index.html">CellularNetworkStatus.SimCardStatus</a></div><div class="brief "><p class="paragraph">sim card status</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sim-card-status.html">simCardStatus</a><span class="token operator">: </span><a href="-sim-card-status/index.html">CellularNetworkStatus.SimCardStatus</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">sim card status or <code class="lang-kotlin">null</code> if unknown</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1782101538%2FProperties%2F1436726670" anchor-label="successfulRegistrationTimestamp" id="-1782101538%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="successful-registration-timestamp.html"><span>successful</span><wbr></wbr><span>Registration</span><wbr></wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1782101538%2FProperties%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="successful-registration-timestamp.html">successfulRegistrationTimestamp</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">successful registration timestamp or <code class="lang-kotlin">null</code> if not registered</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -403,7 +343,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="supported-technologies.html">supportedTechnologies</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-supported-technology/index.html">CellularNetworkStatus.SupportedTechnology</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">list of supported technologies</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="supported-technologies.html">supportedTechnologies</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="-technology/index.html">CellularNetworkStatus.Technology</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">list of supported technologies</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -418,7 +358,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="tracking-area-code.html">trackingAreaCode</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">tracking area code which is the unique code that each operator assigns to each of their tracking areas or null if not registered</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="tracking-area-code.html">trackingAreaCode</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">tracking area code which is the unique code that each operator assigns to each of their tracking areas or <code class="lang-kotlin">null</code> if not registered</p></div></div></div>
                 </div>
               </div>
             </div>

@@ -46,7 +46,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-1.1.0        </div>
+2.0.0        </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
                 <button class="platform-tag platform-selector common-like" data-active=""
@@ -108,24 +108,43 @@
   <div class="breadcrumbs"><a href="../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../index.html">pl.efento.mobile.bluetooth.model.sensor</a><span class="delimiter">/</span><span class="current">TimeInformation</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Time</span><wbr></wbr><span><span>Information</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">TimeInformation</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>timeStamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>elapsedSecondsSinceBoot<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>measurementSynchronizationFinished<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-sensor/-time-synchronization-status/index.html">Sensor.TimeSynchronizationStatus</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>time</span><wbr></wbr><span><span>Stamp</span></span></u></div></span></div><div><div class="title"><p class="paragraph">current time set on sensor in epoch format</p></div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>elapsed</span><wbr></wbr><span>Seconds</span><wbr></wbr><span>Since</span><wbr></wbr><span><span>Boot</span></span></u></div></span></div><div><div class="title"><p class="paragraph">time in seconds that has passed since the device was started</p></div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>measurement</span><wbr></wbr><span>Synchronization</span><wbr></wbr><span><span>Finished</span></span></u></div></span></div><div><div class="title"><p class="paragraph"><a href="../../pl.efento.mobile.bluetooth.model/-sensor/-time-synchronization-status/index.html">Sensor.TimeSynchronizationStatus</a> Status of time synchronization process or null if not available</p></div></div></div></div></div></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">TimeInformation</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>timeStamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>event<span class="token operator">: </span><a href="-event/index.html">TimeInformation.Event</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>elapsedSecondsSinceEvent<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>measurementSynchronizationFinished<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-sensor/-time-synchronization-status/index.html">Sensor.TimeSynchronizationStatus</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>timeSynchronizationPeriodInSeconds<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>time</span><wbr></wbr><span><span>Stamp</span></span></u></div></span></div><div><div class="title"><p class="paragraph">current time set on sensor in epoch format</p></div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>event</span></span></u></div></span></div><div><div class="title"><p class="paragraph"><a href="-event/index.html">Event</a> type of event that occurred. (for firmware version less than 07.00 only DEVICE_START is available)</p></div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>elapsed</span><wbr></wbr><span>Seconds</span><wbr></wbr><span>Since</span><wbr></wbr><span><span>Event</span></span></u></div></span></div><div><div class="title"><p class="paragraph">time in seconds that has passed since the event occurred</p></div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>measurement</span><wbr></wbr><span>Synchronization</span><wbr></wbr><span><span>Finished</span></span></u></div></span></div><div><div class="title"><p class="paragraph"><a href="../../pl.efento.mobile.bluetooth.model/-sensor/-time-synchronization-status/index.html">Sensor.TimeSynchronizationStatus</a> status of time synchronization process or null if not available</p></div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>time</span><wbr></wbr><span>Synchronization</span><wbr></wbr><span>Period</span><wbr></wbr><span>In</span><wbr></wbr><span><span>Seconds</span></span></u></div></span></div><div><div class="title"><p class="paragraph">time synchronization period in seconds via Bluetooth or null if not available</p></div></div></div></div></div></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="-1638303167%2FConstructors%2F1436726670" anchor-label="TimeInformation" id="-1638303167%2FConstructors%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+        <div class="table"><a data-name="2135537781%2FConstructors%2F1436726670" anchor-label="TimeInformation" id="2135537781%2FConstructors%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
           <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-time-information.html"><span>Time</span><wbr></wbr><span><span>Information</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1638303167%2FConstructors%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2135537781%2FConstructors%2F1436726670"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timeStamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter ">elapsedSecondsSinceBoot<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter ">measurementSynchronizationFinished<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-sensor/-time-synchronization-status/index.html">Sensor.TimeSynchronizationStatus</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timeStamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter ">event<span class="token operator">: </span><a href="-event/index.html">TimeInformation.Event</a><span class="token punctuation">, </span></span><span class="parameter ">elapsedSecondsSinceEvent<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter ">measurementSynchronizationFinished<span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.model/-sensor/-time-synchronization-status/index.html">Sensor.TimeSynchronizationStatus</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">timeSynchronizationPeriodInSeconds<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1291609729%2FClasslikes%2F1436726670" anchor-label="Event" id="1291609729%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-event/index.html"><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1291609729%2FClasslikes%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-event/index.html">Event</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-event/index.html">TimeInformation.Event</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Event type that occurred on the device</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -134,17 +153,32 @@
       </div>
       <div data-togglable="PROPERTY">
         <h2 class="">Properties</h2>
-        <div class="table"><a data-name="256757183%2FProperties%2F1436726670" anchor-label="elapsedSecondsSinceBoot" id="256757183%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+        <div class="table"><a data-name="-1664813009%2FProperties%2F1436726670" anchor-label="elapsedSecondsSinceEvent" id="-1664813009%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
           <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="elapsed-seconds-since-boot.html"><span>elapsed</span><wbr></wbr><span>Seconds</span><wbr></wbr><span>Since</span><wbr></wbr><span><span>Boot</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="256757183%2FProperties%2F1436726670"></span>
+                  <div><a href="elapsed-seconds-since-event.html"><span>elapsed</span><wbr></wbr><span>Seconds</span><wbr></wbr><span>Since</span><wbr></wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1664813009%2FProperties%2F1436726670"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="elapsed-seconds-since-boot.html">elapsedSecondsSinceBoot</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="elapsed-seconds-since-event.html">elapsedSecondsSinceEvent</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1486360530%2FProperties%2F1436726670" anchor-label="event" id="-1486360530%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="event.html"><span><span>event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1486360530%2FProperties%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="event.html">event</a><span class="token operator">: </span><a href="-event/index.html">TimeInformation.Event</a></div></div></div>
                 </div>
               </div>
             </div>
@@ -175,6 +209,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="time-stamp.html">timeStamp</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-729143284%2FProperties%2F1436726670" anchor-label="timeSynchronizationPeriodInSeconds" id="-729143284%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="time-synchronization-period-in-seconds.html"><span>time</span><wbr></wbr><span>Synchronization</span><wbr></wbr><span>Period</span><wbr></wbr><span>In</span><wbr></wbr><span><span>Seconds</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-729143284%2FProperties%2F1436726670"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="time-synchronization-period-in-seconds.html">timeSynchronizationPeriodInSeconds</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div></div></div>
                 </div>
               </div>
             </div>
