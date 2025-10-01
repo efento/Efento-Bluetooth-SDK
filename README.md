@@ -1,5 +1,5 @@
 # Efento Bluetooth Library
-![iOS Badge](https://img.shields.io/badge/platform-Android-green) ![iOS Badge](https://img.shields.io/badge/platform-iOS-blue) [![Kotlin](https://img.shields.io/badge/kotlin-2.1.10-indigo)](http://kotlinlang.org) [![kotlinx-coroutines](https://img.shields.io/badge/kotlinx--coroutines-1.10.1-indigo)](http://kotlinlang.org) 
+![iOS Badge](https://img.shields.io/badge/platform-Android-green) ![iOS Badge](https://img.shields.io/badge/platform-iOS-blue) [![Kotlin](https://img.shields.io/badge/kotlin-2.2.20-indigo)](http://kotlinlang.org) [![kotlinx-coroutines](https://img.shields.io/badge/kotlinx--coroutines-1.10.2-indigo)](http://kotlinlang.org) 
 
 Efento Bluetooth library allows scanning for and connecting to Efento Bluetooth Low Energy (BLE) devices.
 
@@ -23,7 +23,7 @@ Include the Library Dependency
 
 ```groovy
 commonMain.dependencies {
-    implementation("pl.efento.mobile:bluetooth:1.1.0")
+    implementation("pl.efento.mobile:bluetooth:2.0.0")
 }
 ```
 
