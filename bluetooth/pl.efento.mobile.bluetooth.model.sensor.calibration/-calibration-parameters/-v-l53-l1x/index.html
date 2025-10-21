@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>VL53L1x</title>
     <link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
 <script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async="async"></script>
@@ -25,20 +25,18 @@
 <link href="../../../../styles/main.css" rel="Stylesheet">
 <link href="../../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../../styles/logo-styles.css" rel="Stylesheet">
-<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-<script type="text/javascript" src="../../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="../../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../../scripts/prism.js" async="async"></script>
 <script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer="defer"></script>
-<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-            <a class="library-name--link" href="../../../../index.html">
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../../index.html" tabindex="1">
                     bluetooth
             </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
@@ -46,11 +44,11 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-2.0.0        </div>
+2.1.0        </div>
         <div class="navigation-controls">
-        <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":bluetooth:dokkaHtml/commonMain">common</button>
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":bluetooth/commonMain">common</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
                         data-role="dropdown-toggle"
@@ -59,16 +57,16 @@
                         aria-expanded="false"
                         aria-label="Toggle source sets"
                 ></button>
-                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
-                    <div class="dropdown--header"><span>Platform filter</span>
-                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
                             <i class="ui-kit-icon ui-kit-icon_cross"></i>
                         </button>
                     </div>
                         <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":bluetooth:dokkaHtml/commonMain"
-                                       data-filter=":bluetooth:dokkaHtml/commonMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":bluetooth/commonMain"
+                                       data-filter=":bluetooth/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
@@ -76,7 +74,7 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
+        </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
                     type="button">Switch theme
             </button>
@@ -84,48 +82,50 @@
                 API
             </div>
         </div>
-    </nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
-                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header">
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
                             <span>
                                     bluetooth
                             </span>
-                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
-                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
-                            </button>
-                        </div>
-                        <div class="sidebar--inner" id="sideMenu"></div>
-                    </ul>
-                    <div class="dropdown--overlay"></div>
-                </div>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model.sensor.calibration/CalibrationParameters.VL53L1x///PointingToDeclaration//1436726670">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model.sensor.calibration/CalibrationParameters.VL53L1x///PointingToDeclaration//-1510994457">
   <div class="breadcrumbs"><a href="../../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../../index.html">pl.efento.mobile.bluetooth.model.sensor.calibration</a><span class="delimiter">/</span><a href="../index.html">CalibrationParameters</a><span class="delimiter">/</span><span class="current">VL53L1x</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>VL53L1x</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">VL53L1x</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>performTemperatureUpdate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>distanceMode<span class="token operator">: </span><a href="-distance-mode/index.html">CalibrationParameters.VL53L1x.DistanceMode</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>timingBudget<span class="token operator">: </span><a href="-timing-budget/index.html">CalibrationParameters.VL53L1x.TimingBudget</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>measurementOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>crosstalkOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>measurementOffsetCalibrationDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>crosstalkOffsetCalibrationDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span> : <a href="../index.html">CalibrationParameters</a></div><p class="paragraph">Represents calibration parameters for a <a href="../../../pl.efento.mobile.bluetooth.model.sensor/-sensor-model/-v-l53-l1-x_-d-i-s-t-a-n-c-e/index.html">SensorModel.VL53L1X_DISTANCE</a> distance sensor.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">VL53L1x</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>performTemperatureUpdate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>distanceMode<span class="token operator">: </span><a href="-distance-mode/index.html">CalibrationParameters.VL53L1x.DistanceMode</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>timingBudget<span class="token operator">: </span><a href="-timing-budget/index.html">CalibrationParameters.VL53L1x.TimingBudget</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>measurementOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>crosstalkOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>measurementOffsetCalibrationDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>crosstalkOffsetCalibrationDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span> : <a href="../index.html">CalibrationParameters</a></div><p class="paragraph">Represents calibration parameters for a <a href="../../../pl.efento.mobile.bluetooth.model.sensor/-sensor-model/-v-l53-l1-x_-d-i-s-t-a-n-c-e/index.html">SensorModel.VL53L1X_DISTANCE</a> distance sensor.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
-        <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="1889651349%2FConstructors%2F1436726670" anchor-label="VL53L1x" id="1889651349%2FConstructors%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="1889651349%2FConstructors%2F-1510994457" anchor-label="VL53L1x" id="1889651349%2FConstructors%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-v-l53-l1x.html"><span><span>VL53L1x</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1889651349%2FConstructors%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1889651349%2FConstructors%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">performTemperatureUpdate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">distanceMode<span class="token operator">: </span><a href="-distance-mode/index.html">CalibrationParameters.VL53L1x.DistanceMode</a><span class="token punctuation">, </span></span><span class="parameter ">timingBudget<span class="token operator">: </span><a href="-timing-budget/index.html">CalibrationParameters.VL53L1x.TimingBudget</a><span class="token punctuation">, </span></span><span class="parameter ">measurementOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">crosstalkOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">measurementOffsetCalibrationDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">crosstalkOffsetCalibrationDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">performTemperatureUpdate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">distanceMode<span class="token operator">: </span><a href="-distance-mode/index.html">CalibrationParameters.VL53L1x.DistanceMode</a><span class="token punctuation">, </span></span><span class="parameter ">timingBudget<span class="token operator">: </span><a href="-timing-budget/index.html">CalibrationParameters.VL53L1x.TimingBudget</a><span class="token punctuation">, </span></span><span class="parameter ">measurementOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">crosstalkOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">measurementOffsetCalibrationDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">crosstalkOffsetCalibrationDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -133,33 +133,33 @@
         </div>
       </div>
       <div data-togglable="TYPE">
-        <h2 class="">Types</h2>
-        <div class="table"><a data-name="-1588124783%2FClasslikes%2F1436726670" anchor-label="DistanceMode" id="-1588124783%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-1588124783%2FClasslikes%2F-1510994457" anchor-label="DistanceMode" id="-1588124783%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-distance-mode/index.html"><span>Distance</span><wbr></wbr><span><span>Mode</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1588124783%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1588124783%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-distance-mode/index.html">DistanceMode</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-distance-mode/index.html">CalibrationParameters.VL53L1x.DistanceMode</a><span class="token operator">&gt; </span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-distance-mode/index.html">DistanceMode</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-distance-mode/index.html">CalibrationParameters.VL53L1x.DistanceMode</a><span class="token operator">&gt; </span></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1518363258%2FClasslikes%2F1436726670" anchor-label="TimingBudget" id="1518363258%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1518363258%2FClasslikes%2F-1510994457" anchor-label="TimingBudget" id="1518363258%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-timing-budget/index.html"><span>Timing</span><wbr></wbr><span><span>Budget</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1518363258%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1518363258%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-timing-budget/index.html">TimingBudget</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-timing-budget/index.html">CalibrationParameters.VL53L1x.TimingBudget</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Timing budget in ms. This is the amount of time the sensor requires to complete a single distance measurement. It can be adjusted to optimize measurement accuracy. Increasing the timing budget reduces the standard deviation of the measurement, resulting in higher accuracy, but also increases power consumption.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-timing-budget/index.html">TimingBudget</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-timing-budget/index.html">CalibrationParameters.VL53L1x.TimingBudget</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Timing budget in ms. This is the amount of time the sensor requires to complete a single distance measurement. It can be adjusted to optimize measurement accuracy. Increasing the timing budget reduces the standard deviation of the measurement, resulting in higher accuracy, but also increases power consumption.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -167,108 +167,108 @@
         </div>
       </div>
       <div data-togglable="PROPERTY">
-        <h2 class="">Properties</h2>
-        <div class="table"><a data-name="1247703623%2FProperties%2F1436726670" anchor-label="crosstalkOffset" id="1247703623%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="1247703623%2FProperties%2F-1510994457" anchor-label="crosstalkOffset" id="1247703623%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="crosstalk-offset.html"><span>crosstalk</span><wbr></wbr><span><span>Offset</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1247703623%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1247703623%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="crosstalk-offset.html">crosstalkOffset</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The crosstalk correction value in cps. Range 0 : 65535 This parameter is not required for standard sensor operation. In imaging systems, crosstalk refers to the portion of the return signal detected by the sensing array that originates from internal reflections of the VCSEL light within the protective window (cover glass) placed over the module for protection and aesthetics. The quality of the cover glass can significantly influence the amount of reflected light, potentially impacting sensor performance. The VL53L1x includes an integrated crosstalk compensation mechanism that allows users to mitigate this effect. Crosstalk calibration is used to estimate and apply the necessary correction to compensate for the influence of the cover glass.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="crosstalk-offset.html">crosstalkOffset</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The crosstalk correction value in cps. Range 0 : 65535 This parameter is not required for standard sensor operation. In imaging systems, crosstalk refers to the portion of the return signal detected by the sensing array that originates from internal reflections of the VCSEL light within the protective window (cover glass) placed over the module for protection and aesthetics. The quality of the cover glass can significantly influence the amount of reflected light, potentially impacting sensor performance. The VL53L1x includes an integrated crosstalk compensation mechanism that allows users to mitigate this effect. Crosstalk calibration is used to estimate and apply the necessary correction to compensate for the influence of the cover glass.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="477912327%2FProperties%2F1436726670" anchor-label="crosstalkOffsetCalibrationDone" id="477912327%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="477912327%2FProperties%2F-1510994457" anchor-label="crosstalkOffsetCalibrationDone" id="477912327%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="crosstalk-offset-calibration-done.html"><span>crosstalk</span><wbr></wbr><span>Offset</span><wbr></wbr><span>Calibration</span><wbr></wbr><span><span>Done</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="477912327%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="477912327%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="crosstalk-offset-calibration-done.html">crosstalkOffsetCalibrationDone</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if the crosstalk calibration has been done.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="crosstalk-offset-calibration-done.html">crosstalkOffsetCalibrationDone</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if the crosstalk calibration has been done.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1483637284%2FProperties%2F1436726670" anchor-label="distanceMode" id="-1483637284%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1483637284%2FProperties%2F-1510994457" anchor-label="distanceMode" id="-1483637284%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="distance-mode.html"><span>distance</span><wbr></wbr><span><span>Mode</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1483637284%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1483637284%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="distance-mode.html">distanceMode</a><span class="token operator">: </span><a href="-distance-mode/index.html">CalibrationParameters.VL53L1x.DistanceMode</a></div><div class="brief "><p class="paragraph">The mode of distance measurement.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="distance-mode.html">distanceMode</a><span class="token operator">: </span><a href="-distance-mode/index.html">CalibrationParameters.VL53L1x.DistanceMode</a></div><div class="brief "><p class="paragraph">The mode of distance measurement.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="2089351991%2FProperties%2F1436726670" anchor-label="measurementOffset" id="2089351991%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="2089351991%2FProperties%2F-1510994457" anchor-label="measurementOffset" id="2089351991%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="measurement-offset.html"><span>measurement</span><wbr></wbr><span><span>Offset</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2089351991%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2089351991%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="measurement-offset.html">measurementOffset</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The measurement correction value in mm. Range -32768 : 32767</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="measurement-offset.html">measurementOffset</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The measurement correction value in mm. Range -32768 : 32767</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="129029655%2FProperties%2F1436726670" anchor-label="measurementOffsetCalibrationDone" id="129029655%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="129029655%2FProperties%2F-1510994457" anchor-label="measurementOffsetCalibrationDone" id="129029655%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="measurement-offset-calibration-done.html"><span>measurement</span><wbr></wbr><span>Offset</span><wbr></wbr><span>Calibration</span><wbr></wbr><span><span>Done</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="129029655%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="129029655%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="measurement-offset-calibration-done.html">measurementOffsetCalibrationDone</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if the measurement offset calibration has been done.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="measurement-offset-calibration-done.html">measurementOffsetCalibrationDone</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if the measurement offset calibration has been done.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="455206168%2FProperties%2F1436726670" anchor-label="performTemperatureUpdate" id="455206168%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="455206168%2FProperties%2F-1510994457" anchor-label="performTemperatureUpdate" id="455206168%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="perform-temperature-update.html"><span>perform</span><wbr></wbr><span>Temperature</span><wbr></wbr><span><span>Update</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="455206168%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="455206168%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="perform-temperature-update.html">performTemperatureUpdate</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if the temperature update should be performed. If the sensor has been inactive for an extended period, it is recommended to perform a temperature update before resuming ranging operations. While the sensor can automatically compensate for temperature changes during continuous operation, a manual temperature update is advised after a prolonged shutdown to ensure accurate performance.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="perform-temperature-update.html">performTemperatureUpdate</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if the temperature update should be performed. If the sensor has been inactive for an extended period, it is recommended to perform a temperature update before resuming ranging operations. While the sensor can automatically compensate for temperature changes during continuous operation, a manual temperature update is advised after a prolonged shutdown to ensure accurate performance.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1622850757%2FProperties%2F1436726670" anchor-label="timingBudget" id="1622850757%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1622850757%2FProperties%2F-1510994457" anchor-label="timingBudget" id="1622850757%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="timing-budget.html"><span>timing</span><wbr></wbr><span><span>Budget</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1622850757%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1622850757%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="timing-budget.html">timingBudget</a><span class="token operator">: </span><a href="-timing-budget/index.html">CalibrationParameters.VL53L1x.TimingBudget</a></div><div class="brief "><p class="paragraph">The timing budget for the distance measurement.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="timing-budget.html">timingBudget</a><span class="token operator">: </span><a href="-timing-budget/index.html">CalibrationParameters.VL53L1x.TimingBudget</a></div><div class="brief "><p class="paragraph">The timing budget for the distance measurement.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -279,17 +279,21 @@
   </div>
 </div>
     <div class="footer">
-        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
-        <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
-    </div>
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2025 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

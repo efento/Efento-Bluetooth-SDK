@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>UpdateError</title>
     <link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
 <script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async="async"></script>
@@ -25,20 +25,18 @@
 <link href="../../../../styles/main.css" rel="Stylesheet">
 <link href="../../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../../styles/logo-styles.css" rel="Stylesheet">
-<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-<script type="text/javascript" src="../../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="../../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../../scripts/prism.js" async="async"></script>
 <script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer="defer"></script>
-<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-            <a class="library-name--link" href="../../../../index.html">
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../../index.html" tabindex="1">
                     bluetooth
             </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
@@ -46,11 +44,11 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-2.0.0        </div>
+2.1.0        </div>
         <div class="navigation-controls">
-        <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":bluetooth:dokkaHtml/commonMain">common</button>
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":bluetooth/commonMain">common</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
                         data-role="dropdown-toggle"
@@ -59,16 +57,16 @@
                         aria-expanded="false"
                         aria-label="Toggle source sets"
                 ></button>
-                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
-                    <div class="dropdown--header"><span>Platform filter</span>
-                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
                             <i class="ui-kit-icon ui-kit-icon_cross"></i>
                         </button>
                     </div>
                         <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":bluetooth:dokkaHtml/commonMain"
-                                       data-filter=":bluetooth:dokkaHtml/commonMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":bluetooth/commonMain"
+                                       data-filter=":bluetooth/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
@@ -76,7 +74,7 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
+        </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
                     type="button">Switch theme
             </button>
@@ -84,198 +82,200 @@
                 API
             </div>
         </div>
-    </nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
-                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header">
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
                             <span>
                                     bluetooth
                             </span>
-                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
-                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
-                            </button>
-                        </div>
-                        <div class="sidebar--inner" id="sideMenu"></div>
-                    </ul>
-                    <div class="dropdown--overlay"></div>
-                </div>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model/GatewayInBootloader.UpdateError///PointingToDeclaration//1436726670">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model/GatewayInBootloader.UpdateError///PointingToDeclaration//-1510994457">
   <div class="breadcrumbs"><a href="../../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../../index.html">pl.efento.mobile.bluetooth.model</a><span class="delimiter">/</span><a href="../index.html">GatewayInBootloader</a><span class="delimiter">/</span><span class="current">UpdateError</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Update</span><wbr></wbr><span><span>Error</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">UpdateError</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">GatewayInBootloader.UpdateError</a><span class="token operator">&gt; </span></div><p class="paragraph">Firmware update error</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">UpdateError</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">GatewayInBootloader.UpdateError</a><span class="token operator">&gt; </span></div><p class="paragraph">Firmware update error</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="ENTRY">Entries</button></div>
     <div class="tabs-section-body">
       <div data-togglable="ENTRY">
-        <h2 class="">Entries</h2>
-        <div class="table"><a data-name="1440344860%2FClasslikes%2F1436726670" anchor-label="INVALID_UPDATE_INFORMATION" id="1440344860%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Entries</h2>
+        <div class="table"><a data-name="1440344860%2FClasslikes%2F-1510994457" anchor-label="INVALID_UPDATE_INFORMATION" id="1440344860%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-n-v-a-l-i-d_-u-p-d-a-t-e_-i-n-f-o-r-m-a-t-i-o-n/index.html">INVALID_UPDATE_INFORMATION</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1440344860%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1440344860%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-u-p-d-a-t-e_-i-n-f-o-r-m-a-t-i-o-n/index.html">INVALID_UPDATE_INFORMATION</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-u-p-d-a-t-e_-i-n-f-o-r-m-a-t-i-o-n/index.html">INVALID_UPDATE_INFORMATION</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1485049282%2FClasslikes%2F1436726670" anchor-label="INVALID_UPDATE_DATA" id="1485049282%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1485049282%2FClasslikes%2F-1510994457" anchor-label="INVALID_UPDATE_DATA" id="1485049282%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-n-v-a-l-i-d_-u-p-d-a-t-e_-d-a-t-a/index.html">INVALID_UPDATE_DATA</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1485049282%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1485049282%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-u-p-d-a-t-e_-d-a-t-a/index.html">INVALID_UPDATE_DATA</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-u-p-d-a-t-e_-d-a-t-a/index.html">INVALID_UPDATE_DATA</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-176884349%2FClasslikes%2F1436726670" anchor-label="INVALID_APPLICATION_HASH" id="-176884349%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-176884349%2FClasslikes%2F-1510994457" anchor-label="INVALID_APPLICATION_HASH" id="-176884349%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-n-v-a-l-i-d_-a-p-p-l-i-c-a-t-i-o-n_-h-a-s-h/index.html">INVALID_APPLICATION_HASH</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-176884349%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-176884349%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-a-p-p-l-i-c-a-t-i-o-n_-h-a-s-h/index.html">INVALID_APPLICATION_HASH</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-a-p-p-l-i-c-a-t-i-o-n_-h-a-s-h/index.html">INVALID_APPLICATION_HASH</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-218231608%2FClasslikes%2F1436726670" anchor-label="INVALID_SOFT_DEVICE_HASH" id="-218231608%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-218231608%2FClasslikes%2F-1510994457" anchor-label="INVALID_SOFT_DEVICE_HASH" id="-218231608%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-n-v-a-l-i-d_-s-o-f-t_-d-e-v-i-c-e_-h-a-s-h/index.html">INVALID_SOFT_DEVICE_HASH</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-218231608%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-218231608%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-s-o-f-t_-d-e-v-i-c-e_-h-a-s-h/index.html">INVALID_SOFT_DEVICE_HASH</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-s-o-f-t_-d-e-v-i-c-e_-h-a-s-h/index.html">INVALID_SOFT_DEVICE_HASH</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1166266035%2FClasslikes%2F1436726670" anchor-label="VALIDATION_WRITE_FAILED" id="-1166266035%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1166266035%2FClasslikes%2F-1510994457" anchor-label="VALIDATION_WRITE_FAILED" id="-1166266035%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-v-a-l-i-d-a-t-i-o-n_-w-r-i-t-e_-f-a-i-l-e-d/index.html">VALIDATION_WRITE_FAILED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1166266035%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1166266035%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-v-a-l-i-d-a-t-i-o-n_-w-r-i-t-e_-f-a-i-l-e-d/index.html">VALIDATION_WRITE_FAILED</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-v-a-l-i-d-a-t-i-o-n_-w-r-i-t-e_-f-a-i-l-e-d/index.html">VALIDATION_WRITE_FAILED</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1012694251%2FClasslikes%2F1436726670" anchor-label="APPLICATION_PAGE_REVERT_FAILED" id="-1012694251%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1012694251%2FClasslikes%2F-1510994457" anchor-label="APPLICATION_PAGE_REVERT_FAILED" id="-1012694251%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-a-p-p-l-i-c-a-t-i-o-n_-p-a-g-e_-r-e-v-e-r-t_-f-a-i-l-e-d/index.html">APPLICATION_PAGE_REVERT_FAILED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1012694251%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1012694251%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-p-p-l-i-c-a-t-i-o-n_-p-a-g-e_-r-e-v-e-r-t_-f-a-i-l-e-d/index.html">APPLICATION_PAGE_REVERT_FAILED</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-p-p-l-i-c-a-t-i-o-n_-p-a-g-e_-r-e-v-e-r-t_-f-a-i-l-e-d/index.html">APPLICATION_PAGE_REVERT_FAILED</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1055896971%2FClasslikes%2F1436726670" anchor-label="PAGE_COPY_FAILED" id="-1055896971%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1055896971%2FClasslikes%2F-1510994457" anchor-label="PAGE_COPY_FAILED" id="-1055896971%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-a-g-e_-c-o-p-y_-f-a-i-l-e-d/index.html">PAGE_COPY_FAILED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1055896971%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1055896971%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-a-g-e_-c-o-p-y_-f-a-i-l-e-d/index.html">PAGE_COPY_FAILED</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-a-g-e_-c-o-p-y_-f-a-i-l-e-d/index.html">PAGE_COPY_FAILED</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1116388873%2FClasslikes%2F1436726670" anchor-label="PAGE_WRITE_FAILED" id="-1116388873%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1116388873%2FClasslikes%2F-1510994457" anchor-label="PAGE_WRITE_FAILED" id="-1116388873%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-a-g-e_-w-r-i-t-e_-f-a-i-l-e-d/index.html">PAGE_WRITE_FAILED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1116388873%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1116388873%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-a-g-e_-w-r-i-t-e_-f-a-i-l-e-d/index.html">PAGE_WRITE_FAILED</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-a-g-e_-w-r-i-t-e_-f-a-i-l-e-d/index.html">PAGE_WRITE_FAILED</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1665015630%2FClasslikes%2F1436726670" anchor-label="INVALID_APPLICATION_DIFFERENCE" id="-1665015630%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1665015630%2FClasslikes%2F-1510994457" anchor-label="INVALID_APPLICATION_DIFFERENCE" id="-1665015630%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-n-v-a-l-i-d_-a-p-p-l-i-c-a-t-i-o-n_-d-i-f-f-e-r-e-n-c-e/index.html">INVALID_APPLICATION_DIFFERENCE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1665015630%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1665015630%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-a-p-p-l-i-c-a-t-i-o-n_-d-i-f-f-e-r-e-n-c-e/index.html">INVALID_APPLICATION_DIFFERENCE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-a-p-p-l-i-c-a-t-i-o-n_-d-i-f-f-e-r-e-n-c-e/index.html">INVALID_APPLICATION_DIFFERENCE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1819639274%2FClasslikes%2F1436726670" anchor-label="LOG_WRITE_FAILED" id="-1819639274%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1819639274%2FClasslikes%2F-1510994457" anchor-label="LOG_WRITE_FAILED" id="-1819639274%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-l-o-g_-w-r-i-t-e_-f-a-i-l-e-d/index.html">LOG_WRITE_FAILED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1819639274%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1819639274%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-o-g_-w-r-i-t-e_-f-a-i-l-e-d/index.html">LOG_WRITE_FAILED</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-o-g_-w-r-i-t-e_-f-a-i-l-e-d/index.html">LOG_WRITE_FAILED</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-2097065646%2FClasslikes%2F1436726670" anchor-label="UPDATE_DATA_READ_FAIL" id="-2097065646%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-2097065646%2FClasslikes%2F-1510994457" anchor-label="UPDATE_DATA_READ_FAIL" id="-2097065646%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-u-p-d-a-t-e_-d-a-t-a_-r-e-a-d_-f-a-i-l/index.html">UPDATE_DATA_READ_FAIL</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2097065646%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2097065646%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-u-p-d-a-t-e_-d-a-t-a_-r-e-a-d_-f-a-i-l/index.html">UPDATE_DATA_READ_FAIL</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-u-p-d-a-t-e_-d-a-t-a_-r-e-a-d_-f-a-i-l/index.html">UPDATE_DATA_READ_FAIL</a></div></div></div></div>
                 </div>
               </div>
             </div>
@@ -283,48 +283,48 @@
         </div>
       </div>
       <div data-togglable="PROPERTY">
-        <h2 class="">Properties</h2>
-        <div class="table"><a data-name="399889720%2FProperties%2F1436726670" anchor-label="entries" id="399889720%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="399889720%2FProperties%2F-1510994457" anchor-label="entries" id="399889720%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="entries.html"><span><span>entries</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="399889720%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="399889720%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="entries.html">entries</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">EnumEntries</a><span class="token operator">&lt;</span><a href="index.html">GatewayInBootloader.UpdateError</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns a representation of an immutable list of all enum entries, in the order they're declared.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="entries.html">entries</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">EnumEntries</a><span class="token operator">&lt;</span><a href="index.html">GatewayInBootloader.UpdateError</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns a representation of an immutable list of all enum entries, in the order they're declared.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-372974862%2FProperties%2F1436726670" anchor-label="name" id="-372974862%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-372974862%2FProperties%2F-1510994457" anchor-label="name" id="-372974862%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="../../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-372974862%2FProperties%2F1436726670"><span><span>name</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-372974862%2FProperties%2F1436726670"></span>
+                  <div><a href="../../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-372974862%2FProperties%2F-1510994457"><span><span>name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-372974862%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-372974862%2FProperties%2F1436726670">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="../../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-372974862%2FProperties%2F-1510994457">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-739389684%2FProperties%2F1436726670" anchor-label="ordinal" id="-739389684%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-739389684%2FProperties%2F-1510994457" anchor-label="ordinal" id="-739389684%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="../../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-739389684%2FProperties%2F1436726670"><span><span>ordinal</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-739389684%2FProperties%2F1436726670"></span>
+                  <div><a href="../../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-739389684%2FProperties%2F-1510994457"><span><span>ordinal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-739389684%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-739389684%2FProperties%2F1436726670">ordinal</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="../../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-739389684%2FProperties%2F-1510994457">ordinal</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
                 </div>
               </div>
             </div>
@@ -332,33 +332,33 @@
         </div>
       </div>
       <div data-togglable="FUNCTION">
-        <h2 class="">Functions</h2>
-        <div class="table"><a data-name="-111393948%2FFunctions%2F1436726670" anchor-label="valueOf" id="-111393948%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-111393948%2FFunctions%2F-1510994457" anchor-label="valueOf" id="-111393948%2FFunctions%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="value-of.html"><span>value</span><wbr></wbr><span><span>Of</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-111393948%2FFunctions%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-111393948%2FFunctions%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="value-of.html"><span class="token function">valueOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">GatewayInBootloader.UpdateError</a></div><div class="brief "><p class="paragraph">Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="value-of.html"><span class="token function">valueOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">GatewayInBootloader.UpdateError</a></div><div class="brief "><p class="paragraph">Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1032843408%2FFunctions%2F1436726670" anchor-label="values" id="-1032843408%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1032843408%2FFunctions%2F-1510994457" anchor-label="values" id="-1032843408%2FFunctions%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="values.html"><span><span>values</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1032843408%2FFunctions%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1032843408%2FFunctions%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="values.html"><span class="token function">values</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="index.html">GatewayInBootloader.UpdateError</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns an array containing the constants of this enum type, in the order they're declared.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="values.html"><span class="token function">values</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="index.html">GatewayInBootloader.UpdateError</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns an array containing the constants of this enum type, in the order they're declared.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -369,17 +369,21 @@
   </div>
 </div>
     <div class="footer">
-        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
-        <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
-    </div>
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2025 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>Measurement</title>
     <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
 <script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
@@ -25,20 +25,18 @@
 <link href="../../../styles/main.css" rel="Stylesheet">
 <link href="../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../styles/logo-styles.css" rel="Stylesheet">
-<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
 <script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
-<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-            <a class="library-name--link" href="../../../index.html">
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
                     bluetooth
             </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
@@ -46,11 +44,11 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-2.0.0        </div>
+2.1.0        </div>
         <div class="navigation-controls">
-        <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":bluetooth:dokkaHtml/commonMain">common</button>
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":bluetooth/commonMain">common</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
                         data-role="dropdown-toggle"
@@ -59,16 +57,16 @@
                         aria-expanded="false"
                         aria-label="Toggle source sets"
                 ></button>
-                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
-                    <div class="dropdown--header"><span>Platform filter</span>
-                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
                             <i class="ui-kit-icon ui-kit-icon_cross"></i>
                         </button>
                     </div>
                         <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":bluetooth:dokkaHtml/commonMain"
-                                       data-filter=":bluetooth:dokkaHtml/commonMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":bluetooth/commonMain"
+                                       data-filter=":bluetooth/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
@@ -76,7 +74,7 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
+        </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
                     type="button">Switch theme
             </button>
@@ -84,78 +82,80 @@
                 API
             </div>
         </div>
-    </nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
-                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header">
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
                             <span>
                                     bluetooth
                             </span>
-                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
-                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
-                            </button>
-                        </div>
-                        <div class="sidebar--inner" id="sideMenu"></div>
-                    </ul>
-                    <div class="dropdown--overlay"></div>
-                </div>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.measurement/Measurement///PointingToDeclaration//1436726670">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.measurement/Measurement///PointingToDeclaration//-1510994457">
   <div class="breadcrumbs"><a href="../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../index.html">pl.efento.mobile.bluetooth.measurement</a><span class="delimiter">/</span><span class="current">Measurement</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Measurement</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">interface </span><a href="index.html">Measurement</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></div><p class="paragraph">Single measurement provided by Efento device.</p><h4 class="">Inheritors</h4><div class="table"><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-alarm/index.html">Alarm</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-ambient-light/index.html">AmbientLight</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-ammonia/index.html">Ammonia</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-atmospheric-pressure/index.html">AtmosphericPressure</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-breath-v-o-c/index.html">BreathVOC</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-carbon-dioxide/index.html">CarbonDioxide</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-carbon-dioxide-equivalent/index.html">CarbonDioxideEquivalent</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-carbon-monoxide/index.html">CarbonMonoxide</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-current/index.html">Current</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-current-precise/index.html">CurrentPrecise</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-differential-pressure/index.html">DifferentialPressure</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-distance/index.html">Distance</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-electricity-usage/index.html">ElectricityUsage</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-electricity-usage-accumulated/index.html">ElectricityUsageAccumulated</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-high-pressure/index.html">HighPressure</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-humidity/index.html">Humidity</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-humidity-accurate/index.html">HumidityAccurate</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-hydrogen-sulfide/index.html">HydrogenSulfide</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-internal-air-quality/index.html">InternalAirQuality</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-internal-air-quality-static/index.html">InternalAirQualityStatic</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-leakage/index.html">Leakage</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-measurement-bundle/index.html">MeasurementBundle</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-methane/index.html">Methane</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-nitrogen-dioxide/index.html">NitrogenDioxide</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-noise-level/index.html">NoiseLevel</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-output-control/index.html">OutputControl</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-particulate-matter1/index.html">ParticulateMatter1</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-particulate-matter10/index.html">ParticulateMatter10</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-particulate-matter2_5/index.html">ParticulateMatter2_5</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-percentage/index.html">Percentage</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-pulses/index.html">Pulses</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-pulses-accumulated/index.html">PulsesAccumulated</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-pulses-accumulated-wide-range/index.html">PulsesAccumulatedWideRange</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-resistance/index.html">Resistance</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-soil-moisture/index.html">SoilMoisture</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-temperature/index.html">Temperature</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-voltage/index.html">Voltage</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-water-usage/index.html">WaterUsage</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-water-usage-accumulated/index.html">WaterUsageAccumulated</a></div></span></div><div></div></div></div></div></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">interface </span><a href="index.html">Measurement</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></div><p class="paragraph">Single measurement provided by Efento device.</p><h4 class="tableheader">Inheritors</h4><div class="table"><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-alarm/index.html">Alarm</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-ambient-light/index.html">AmbientLight</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-ammonia/index.html">Ammonia</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-atmospheric-pressure/index.html">AtmosphericPressure</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-breath-v-o-c/index.html">BreathVOC</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-carbon-dioxide/index.html">CarbonDioxide</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-carbon-dioxide-equivalent/index.html">CarbonDioxideEquivalent</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-carbon-monoxide/index.html">CarbonMonoxide</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-current/index.html">Current</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-current-precise/index.html">CurrentPrecise</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-differential-pressure/index.html">DifferentialPressure</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-distance/index.html">Distance</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-electricity-usage/index.html">ElectricityUsage</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-electricity-usage-accumulated/index.html">ElectricityUsageAccumulated</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-high-pressure/index.html">HighPressure</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-humidity/index.html">Humidity</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-humidity-accurate/index.html">HumidityAccurate</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-hydrogen-sulfide/index.html">HydrogenSulfide</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-internal-air-quality/index.html">InternalAirQuality</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-internal-air-quality-static/index.html">InternalAirQualityStatic</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-leakage/index.html">Leakage</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-measurement-bundle/index.html">MeasurementBundle</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-methane/index.html">Methane</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-nitrogen-dioxide/index.html">NitrogenDioxide</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-noise-level/index.html">NoiseLevel</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-output-control/index.html">OutputControl</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-particulate-matter1/index.html">ParticulateMatter1</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-particulate-matter10/index.html">ParticulateMatter10</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-particulate-matter2_5/index.html">ParticulateMatter2_5</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-percentage/index.html">Percentage</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-pulses/index.html">Pulses</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-pulses-accumulated/index.html">PulsesAccumulated</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-pulses-accumulated-wide-range/index.html">PulsesAccumulatedWideRange</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-resistance/index.html">Resistance</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-soil-moisture/index.html">SoilMoisture</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-temperature/index.html">Temperature</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-voltage/index.html">Voltage</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-water-usage/index.html">WaterUsage</a></div></span></div><div></div></div></div><div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-water-usage-accumulated/index.html">WaterUsageAccumulated</a></div></span></div><div></div></div></div></div></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="TYPE">
-        <h2 class="">Types</h2>
-        <div class="table"><a data-name="-518155554%2FClasslikes%2F1436726670" anchor-label="Accuracy" id="-518155554%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-518155554%2FClasslikes%2F-1510994457" anchor-label="Accuracy" id="-518155554%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-accuracy/index.html"><span><span>Accuracy</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-518155554%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-518155554%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-accuracy/index.html">Accuracy</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-accuracy/index.html">Measurement.Accuracy</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Accuracy of measurement</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-accuracy/index.html">Accuracy</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-accuracy/index.html">Measurement.Accuracy</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Accuracy of measurement</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="845430661%2FClasslikes%2F1436726670" anchor-label="Status" id="845430661%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="845430661%2FClasslikes%2F-1510994457" anchor-label="Status" id="845430661%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-status/index.html"><span><span>Status</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="845430661%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="845430661%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-status/index.html">Status</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-status/index.html">Measurement.Status</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Status of measurement.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-status/index.html">Status</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-status/index.html">Measurement.Status</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Status of measurement.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="861489853%2FClasslikes%2F1436726670" anchor-label="Type" id="861489853%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="861489853%2FClasslikes%2F-1510994457" anchor-label="Type" id="861489853%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-type/index.html"><span><span>Type</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="861489853%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="861489853%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-type/index.html">Type</a></div><div class="brief "><p class="paragraph">Type of the measurement.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-type/index.html">Type</a></div><div class="brief "><p class="paragraph">Type of the measurement.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -163,78 +163,78 @@
         </div>
       </div>
       <div data-togglable="PROPERTY">
-        <h2 class="">Properties</h2>
-        <div class="table"><a data-name="153232553%2FProperties%2F1436726670" anchor-label="accuracy" id="153232553%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="153232553%2FProperties%2F-1510994457" anchor-label="accuracy" id="153232553%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="accuracy.html"><span><span>accuracy</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="153232553%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="153232553%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="accuracy.html">accuracy</a><span class="token operator">: </span><a href="-accuracy/index.html">Measurement.Accuracy</a></div><div class="brief "><p class="paragraph">Accuracy of given measurement.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="accuracy.html">accuracy</a><span class="token operator">: </span><a href="-accuracy/index.html">Measurement.Accuracy</a></div><div class="brief "><p class="paragraph">Accuracy of given measurement.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="2042007206%2FProperties%2F1436726670" anchor-label="isValid" id="2042007206%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="2042007206%2FProperties%2F-1510994457" anchor-label="isValid" id="2042007206%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="is-valid.html"><span>is</span><wbr></wbr><span><span>Valid</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2042007206%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2042007206%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="is-valid.html">isValid</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">True if status of the measurement is <a href="-status/-v-a-l-i-d/index.html">Status.VALID</a></p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="is-valid.html">isValid</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">True if status of the measurement is <a href="-status/-v-a-l-i-d/index.html">Status.VALID</a></p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-2019896048%2FProperties%2F1436726670" anchor-label="status" id="-2019896048%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-2019896048%2FProperties%2F-1510994457" anchor-label="status" id="-2019896048%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="status.html"><span><span>status</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2019896048%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2019896048%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="status.html">status</a><span class="token operator">: </span><a href="-status/index.html">Measurement.Status</a></div><div class="brief "><p class="paragraph">Status of given measurement.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="status.html">status</a><span class="token operator">: </span><a href="-status/index.html">Measurement.Status</a></div><div class="brief "><p class="paragraph">Status of given measurement.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1913662456%2FProperties%2F1436726670" anchor-label="type" id="-1913662456%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1913662456%2FProperties%2F-1510994457" anchor-label="type" id="-1913662456%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="type.html"><span><span>type</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1913662456%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1913662456%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="type.html">type</a><span class="token operator">: </span><a href="-type/index.html">Measurement.Type</a></div><div class="brief "><p class="paragraph">Type of given measurement.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="type.html">type</a><span class="token operator">: </span><a href="-type/index.html">Measurement.Type</a></div><div class="brief "><p class="paragraph">Type of given measurement.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1730945479%2FProperties%2F1436726670" anchor-label="value" id="1730945479%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1730945479%2FProperties%2F-1510994457" anchor-label="value" id="1730945479%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="value.html"><span><span>value</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1730945479%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1730945479%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="value.html">value</a><span class="token operator">: </span><a href="index.html">T</a></div><div class="brief "><p class="paragraph">Value of the measurement.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="value.html">value</a><span class="token operator">: </span><a href="index.html">T</a></div><div class="brief "><p class="paragraph">Value of the measurement.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -245,17 +245,21 @@
   </div>
 </div>
     <div class="footer">
-        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
-        <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
-    </div>
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2025 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>SensorModel</title>
     <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
 <script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
@@ -25,20 +25,18 @@
 <link href="../../../styles/main.css" rel="Stylesheet">
 <link href="../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../styles/logo-styles.css" rel="Stylesheet">
-<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
 <script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
-<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-            <a class="library-name--link" href="../../../index.html">
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
                     bluetooth
             </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
@@ -46,11 +44,11 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-2.0.0        </div>
+2.1.0        </div>
         <div class="navigation-controls">
-        <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":bluetooth:dokkaHtml/commonMain">common</button>
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":bluetooth/commonMain">common</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
                         data-role="dropdown-toggle"
@@ -59,16 +57,16 @@
                         aria-expanded="false"
                         aria-label="Toggle source sets"
                 ></button>
-                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
-                    <div class="dropdown--header"><span>Platform filter</span>
-                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
                             <i class="ui-kit-icon ui-kit-icon_cross"></i>
                         </button>
                     </div>
                         <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":bluetooth:dokkaHtml/commonMain"
-                                       data-filter=":bluetooth:dokkaHtml/commonMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":bluetooth/commonMain"
+                                       data-filter=":bluetooth/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
@@ -76,7 +74,7 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
+        </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
                     type="button">Switch theme
             </button>
@@ -84,1053 +82,1055 @@
                 API
             </div>
         </div>
-    </nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
-                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header">
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
                             <span>
                                     bluetooth
                             </span>
-                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
-                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
-                            </button>
-                        </div>
-                        <div class="sidebar--inner" id="sideMenu"></div>
-                    </ul>
-                    <div class="dropdown--overlay"></div>
-                </div>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model.sensor/SensorModel///PointingToDeclaration//1436726670">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model.sensor/SensorModel///PointingToDeclaration//-1510994457">
   <div class="breadcrumbs"><a href="../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../index.html">pl.efento.mobile.bluetooth.model.sensor</a><span class="delimiter">/</span><span class="current">SensorModel</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Sensor</span><wbr></wbr><span><span>Model</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">SensorModel</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">SensorModel</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents information about sensor installed on the device</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">SensorModel</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">SensorModel</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents information about sensor installed on the device</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="ENTRY">Entries</button></div>
     <div class="tabs-section-body">
       <div data-togglable="ENTRY">
-        <h2 class="">Entries</h2>
-        <div class="table"><a data-name="-1542193445%2FClasslikes%2F1436726670" anchor-label="MCP9808" id="-1542193445%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Entries</h2>
+        <div class="table"><a data-name="-1542193445%2FClasslikes%2F-1510994457" anchor-label="MCP9808" id="-1542193445%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-m-c-p9808/index.html">MCP9808</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1542193445%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1542193445%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-m-c-p9808/index.html">MCP9808</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-m-c-p9808/index.html">MCP9808</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1536389050%2FClasslikes%2F1436726670" anchor-label="DS18B20_EXT" id="-1536389050%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1536389050%2FClasslikes%2F-1510994457" anchor-label="DS18B20_EXT" id="-1536389050%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-d-s18-b20_-e-x-t/index.html">DS18B20_EXT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1536389050%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1536389050%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-d-s18-b20_-e-x-t/index.html">DS18B20_EXT</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-d-s18-b20_-e-x-t/index.html">DS18B20_EXT</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1741534598%2FClasslikes%2F1436726670" anchor-label="LTC2983_RTD" id="-1741534598%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1741534598%2FClasslikes%2F-1510994457" anchor-label="LTC2983_RTD" id="-1741534598%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-l-t-c2983_-r-t-d/index.html">LTC2983_RTD</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1741534598%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1741534598%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-t-c2983_-r-t-d/index.html">LTC2983_RTD</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-t-c2983_-r-t-d/index.html">LTC2983_RTD</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="2000950803%2FClasslikes%2F1436726670" anchor-label="BMP280" id="2000950803%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="2000950803%2FClasslikes%2F-1510994457" anchor-label="BMP280" id="2000950803%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-p280/index.html">BMP280</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2000950803%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2000950803%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-p280/index.html">BMP280</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-p280/index.html">BMP280</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-997692801%2FClasslikes%2F1436726670" anchor-label="SDP8X0" id="-997692801%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-997692801%2FClasslikes%2F-1510994457" anchor-label="SDP8X0" id="-997692801%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-d-p8-x0/index.html">SDP8X0</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-997692801%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-997692801%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-d-p8-x0/index.html">SDP8X0</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-d-p8-x0/index.html">SDP8X0</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-266907865%2FClasslikes%2F1436726670" anchor-label="RELAY_AS_OK_ALARM" id="-266907865%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-266907865%2FClasslikes%2F-1510994457" anchor-label="RELAY_AS_OK_ALARM" id="-266907865%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-r-e-l-a-y_-a-s_-o-k_-a-l-a-r-m/index.html">RELAY_AS_OK_ALARM</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-266907865%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-266907865%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-e-l-a-y_-a-s_-o-k_-a-l-a-r-m/index.html">RELAY_AS_OK_ALARM</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-e-l-a-y_-a-s_-o-k_-a-l-a-r-m/index.html">RELAY_AS_OK_ALARM</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="355974297%2FClasslikes%2F1436726670" anchor-label="BME680_TEMP" id="355974297%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="355974297%2FClasslikes%2F-1510994457" anchor-label="BME680_TEMP" id="355974297%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-e680_-t-e-m-p/index.html">BME680_TEMP</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="355974297%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="355974297%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-t-e-m-p/index.html">BME680_TEMP</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-t-e-m-p/index.html">BME680_TEMP</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1187162659%2FClasslikes%2F1436726670" anchor-label="BME680_HUM" id="1187162659%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1187162659%2FClasslikes%2F-1510994457" anchor-label="BME680_HUM" id="1187162659%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-e680_-h-u-m/index.html">BME680_HUM</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1187162659%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1187162659%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-h-u-m/index.html">BME680_HUM</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-h-u-m/index.html">BME680_HUM</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-472871590%2FClasslikes%2F1436726670" anchor-label="BME680_ATM_PRES" id="-472871590%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-472871590%2FClasslikes%2F-1510994457" anchor-label="BME680_ATM_PRES" id="-472871590%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-e680_-a-t-m_-p-r-e-s/index.html">BME680_ATM_PRES</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-472871590%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-472871590%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-a-t-m_-p-r-e-s/index.html">BME680_ATM_PRES</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-a-t-m_-p-r-e-s/index.html">BME680_ATM_PRES</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1396874684%2FClasslikes%2F1436726670" anchor-label="BME680_IAQ" id="1396874684%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1396874684%2FClasslikes%2F-1510994457" anchor-label="BME680_IAQ" id="1396874684%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-e680_-i-a-q/index.html">BME680_IAQ</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1396874684%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1396874684%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-i-a-q/index.html">BME680_IAQ</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-i-a-q/index.html">BME680_IAQ</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-339045495%2FClasslikes%2F1436726670" anchor-label="RELAY_AS_OK_ALARM_LEGACY" id="-339045495%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-339045495%2FClasslikes%2F-1510994457" anchor-label="RELAY_AS_OK_ALARM_LEGACY" id="-339045495%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-r-e-l-a-y_-a-s_-o-k_-a-l-a-r-m_-l-e-g-a-c-y/index.html">RELAY_AS_OK_ALARM_LEGACY</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-339045495%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-339045495%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-e-l-a-y_-a-s_-o-k_-a-l-a-r-m_-l-e-g-a-c-y/index.html">RELAY_AS_OK_ALARM_LEGACY</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-e-l-a-y_-a-s_-o-k_-a-l-a-r-m_-l-e-g-a-c-y/index.html">RELAY_AS_OK_ALARM_LEGACY</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-894187459%2FClasslikes%2F1436726670" anchor-label="SHT3X_TEMP" id="-894187459%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-894187459%2FClasslikes%2F-1510994457" anchor-label="SHT3X_TEMP" id="-894187459%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t3-x_-t-e-m-p/index.html">SHT3X_TEMP</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-894187459%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-894187459%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t3-x_-t-e-m-p/index.html">SHT3X_TEMP</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t3-x_-t-e-m-p/index.html">SHT3X_TEMP</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-377185793%2FClasslikes%2F1436726670" anchor-label="SHT3X_HUM" id="-377185793%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-377185793%2FClasslikes%2F-1510994457" anchor-label="SHT3X_HUM" id="-377185793%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t3-x_-h-u-m/index.html">SHT3X_HUM</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-377185793%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-377185793%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t3-x_-h-u-m/index.html">SHT3X_HUM</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t3-x_-h-u-m/index.html">SHT3X_HUM</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="398099325%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT" id="398099325%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="398099325%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT" id="398099325%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t/index.html">PULSE_CNT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="398099325%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="398099325%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t/index.html">PULSE_CNT</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t/index.html">PULSE_CNT</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1328925359%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ELEC" id="1328925359%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1328925359%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ELEC" id="1328925359%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-e-l-e-c/index.html">PULSE_CNT_ELEC</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1328925359%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1328925359%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-e-l-e-c/index.html">PULSE_CNT_ELEC</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-e-l-e-c/index.html">PULSE_CNT_ELEC</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-9339211%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_WATER" id="-9339211%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-9339211%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_WATER" id="-9339211%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-w-a-t-e-r/index.html">PULSE_CNT_WATER</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-9339211%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-9339211%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-w-a-t-e-r/index.html">PULSE_CNT_WATER</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-w-a-t-e-r/index.html">PULSE_CNT_WATER</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1826232866%2FClasslikes%2F1436726670" anchor-label="SI70XX_TEMP" id="-1826232866%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1826232866%2FClasslikes%2F-1510994457" anchor-label="SI70XX_TEMP" id="-1826232866%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-i70-x-x_-t-e-m-p/index.html">SI70XX_TEMP</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1826232866%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1826232866%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-i70-x-x_-t-e-m-p/index.html">SI70XX_TEMP</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-i70-x-x_-t-e-m-p/index.html">SI70XX_TEMP</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-545799106%2FClasslikes%2F1436726670" anchor-label="SI70XX_HUM" id="-545799106%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-545799106%2FClasslikes%2F-1510994457" anchor-label="SI70XX_HUM" id="-545799106%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-i70-x-x_-h-u-m/index.html">SI70XX_HUM</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-545799106%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-545799106%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-i70-x-x_-h-u-m/index.html">SI70XX_HUM</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-i70-x-x_-h-u-m/index.html">SI70XX_HUM</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-582693993%2FClasslikes%2F1436726670" anchor-label="ALPHASENSE_A4_CO" id="-582693993%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-582693993%2FClasslikes%2F-1510994457" anchor-label="ALPHASENSE_A4_CO" id="-582693993%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-c-o/index.html">ALPHASENSE_A4_CO</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-582693993%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-582693993%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-c-o/index.html">ALPHASENSE_A4_CO</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-c-o/index.html">ALPHASENSE_A4_CO</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-417150802%2FClasslikes%2F1436726670" anchor-label="ALPHASENSE_A4_NO2" id="-417150802%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-417150802%2FClasslikes%2F-1510994457" anchor-label="ALPHASENSE_A4_NO2" id="-417150802%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-n-o2/index.html">ALPHASENSE_A4_NO2</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-417150802%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-417150802%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-n-o2/index.html">ALPHASENSE_A4_NO2</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-n-o2/index.html">ALPHASENSE_A4_NO2</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1589368006%2FClasslikes%2F1436726670" anchor-label="ALPHASENSE_A4_H2S" id="1589368006%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1589368006%2FClasslikes%2F-1510994457" anchor-label="ALPHASENSE_A4_H2S" id="1589368006%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-h2-s/index.html">ALPHASENSE_A4_H2S</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1589368006%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1589368006%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-h2-s/index.html">ALPHASENSE_A4_H2S</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-l-p-h-a-s-e-n-s-e_-a4_-h2-s/index.html">ALPHASENSE_A4_H2S</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="2068944393%2FClasslikes%2F1436726670" anchor-label="W200SS" id="2068944393%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="2068944393%2FClasslikes%2F-1510994457" anchor-label="W200SS" id="2068944393%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w200-s-s/index.html">W200SS</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2068944393%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2068944393%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-w200-s-s/index.html">W200SS</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-w200-s-s/index.html">W200SS</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="748867371%2FClasslikes%2F1436726670" anchor-label="OPT3001" id="748867371%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="748867371%2FClasslikes%2F-1510994457" anchor-label="OPT3001" id="748867371%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-o-p-t3001/index.html">OPT3001</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="748867371%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="748867371%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-o-p-t3001/index.html">OPT3001</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-o-p-t3001/index.html">OPT3001</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-2016839974%2FClasslikes%2F1436726670" anchor-label="SPS30_PM_1_0" id="-2016839974%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-2016839974%2FClasslikes%2F-1510994457" anchor-label="SPS30_PM_1_0" id="-2016839974%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-p-s30_-p-m_1_0/index.html">SPS30_PM_1_0</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2016839974%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2016839974%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-p-s30_-p-m_1_0/index.html">SPS30_PM_1_0</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-p-s30_-p-m_1_0/index.html">SPS30_PM_1_0</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1429646304%2FClasslikes%2F1436726670" anchor-label="SPS30_PM_2_5" id="-1429646304%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1429646304%2FClasslikes%2F-1510994457" anchor-label="SPS30_PM_2_5" id="-1429646304%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-p-s30_-p-m_2_5/index.html">SPS30_PM_2_5</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1429646304%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1429646304%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-p-s30_-p-m_2_5/index.html">SPS30_PM_2_5</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-p-s30_-p-m_2_5/index.html">SPS30_PM_2_5</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-625026304%2FClasslikes%2F1436726670" anchor-label="SPS30_PM_10_0" id="-625026304%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-625026304%2FClasslikes%2F-1510994457" anchor-label="SPS30_PM_10_0" id="-625026304%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-p-s30_-p-m_10_0/index.html">SPS30_PM_10_0</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-625026304%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-625026304%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-p-s30_-p-m_10_0/index.html">SPS30_PM_10_0</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-p-s30_-p-m_10_0/index.html">SPS30_PM_10_0</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1742347421%2FClasslikes%2F1436726670" anchor-label="VL53L1X_DISTANCE" id="-1742347421%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1742347421%2FClasslikes%2F-1510994457" anchor-label="VL53L1X_DISTANCE" id="-1742347421%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-v-l53-l1-x_-d-i-s-t-a-n-c-e/index.html">VL53L1X_DISTANCE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1742347421%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1742347421%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-v-l53-l1-x_-d-i-s-t-a-n-c-e/index.html">VL53L1X_DISTANCE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-v-l53-l1-x_-d-i-s-t-a-n-c-e/index.html">VL53L1X_DISTANCE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1774465615%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ACC_WATER_MAJOR" id="-1774465615%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1774465615%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ACC_WATER_MAJOR" id="-1774465615%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-a-t-e-r_-m-a-j-o-r/index.html">PULSE_CNT_ACC_WATER_MAJOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1774465615%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1774465615%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-a-t-e-r_-m-a-j-o-r/index.html">PULSE_CNT_ACC_WATER_MAJOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-a-t-e-r_-m-a-j-o-r/index.html">PULSE_CNT_ACC_WATER_MAJOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-969929043%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ACC_WATER_MINOR" id="-969929043%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-969929043%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ACC_WATER_MINOR" id="-969929043%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-a-t-e-r_-m-i-n-o-r/index.html">PULSE_CNT_ACC_WATER_MINOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-969929043%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-969929043%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-a-t-e-r_-m-i-n-o-r/index.html">PULSE_CNT_ACC_WATER_MINOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-a-t-e-r_-m-i-n-o-r/index.html">PULSE_CNT_ACC_WATER_MINOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="965353106%2FClasslikes%2F1436726670" anchor-label="SHTC3_TEMP" id="965353106%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="965353106%2FClasslikes%2F-1510994457" anchor-label="SHTC3_TEMP" id="965353106%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t-c3_-t-e-m-p/index.html">SHTC3_TEMP</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="965353106%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="965353106%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t-c3_-t-e-m-p/index.html">SHTC3_TEMP</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t-c3_-t-e-m-p/index.html">SHTC3_TEMP</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-871389942%2FClasslikes%2F1436726670" anchor-label="SHTC3_HUM" id="-871389942%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-871389942%2FClasslikes%2F-1510994457" anchor-label="SHTC3_HUM" id="-871389942%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t-c3_-h-u-m/index.html">SHTC3_HUM</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-871389942%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-871389942%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t-c3_-h-u-m/index.html">SHTC3_HUM</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t-c3_-h-u-m/index.html">SHTC3_HUM</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1264121228%2FClasslikes%2F1436726670" anchor-label="M32JX" id="-1264121228%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1264121228%2FClasslikes%2F-1510994457" anchor-label="M32JX" id="-1264121228%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-m32-j-x/index.html">M32JX</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1264121228%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1264121228%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-m32-j-x/index.html">M32JX</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-m32-j-x/index.html">M32JX</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="402562514%2FClasslikes%2F1436726670" anchor-label="SCD4X" id="402562514%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="402562514%2FClasslikes%2F-1510994457" anchor-label="SCD4X" id="402562514%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-c-d4-x/index.html">SCD4X</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="402562514%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="402562514%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-c-d4-x/index.html">SCD4X</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-c-d4-x/index.html">SCD4X</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="660335644%2FClasslikes%2F1436726670" anchor-label="BMP3XX" id="660335644%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="660335644%2FClasslikes%2F-1510994457" anchor-label="BMP3XX" id="660335644%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-p3-x-x/index.html">BMP3XX</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="660335644%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="660335644%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-p3-x-x/index.html">BMP3XX</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-p3-x-x/index.html">BMP3XX</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1413667403%2FClasslikes%2F1436726670" anchor-label="BME680_SIAQ" id="1413667403%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1413667403%2FClasslikes%2F-1510994457" anchor-label="BME680_SIAQ" id="1413667403%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-e680_-s-i-a-q/index.html">BME680_SIAQ</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1413667403%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1413667403%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-s-i-a-q/index.html">BME680_SIAQ</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-s-i-a-q/index.html">BME680_SIAQ</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="262833267%2FClasslikes%2F1436726670" anchor-label="BME680_CO2_EQU" id="262833267%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="262833267%2FClasslikes%2F-1510994457" anchor-label="BME680_CO2_EQU" id="262833267%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-e680_-c-o2_-e-q-u/index.html">BME680_CO2_EQU</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="262833267%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="262833267%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-c-o2_-e-q-u/index.html">BME680_CO2_EQU</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-c-o2_-e-q-u/index.html">BME680_CO2_EQU</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-801975571%2FClasslikes%2F1436726670" anchor-label="BME680_BVOC" id="-801975571%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-801975571%2FClasslikes%2F-1510994457" anchor-label="BME680_BVOC" id="-801975571%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-e680_-b-v-o-c/index.html">BME680_BVOC</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-801975571%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-801975571%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-b-v-o-c/index.html">BME680_BVOC</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-b-v-o-c/index.html">BME680_BVOC</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-208200355%2FClasslikes%2F1436726670" anchor-label="MOTION_SENSOR" id="-208200355%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-208200355%2FClasslikes%2F-1510994457" anchor-label="MOTION_SENSOR" id="-208200355%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-m-o-t-i-o-n_-s-e-n-s-o-r/index.html">MOTION_SENSOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-208200355%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-208200355%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-m-o-t-i-o-n_-s-e-n-s-o-r/index.html">MOTION_SENSOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-m-o-t-i-o-n_-s-e-n-s-o-r/index.html">MOTION_SENSOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1563159288%2FClasslikes%2F1436726670" anchor-label="BME680_HUM_ACCURATE" id="1563159288%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1563159288%2FClasslikes%2F-1510994457" anchor-label="BME680_HUM_ACCURATE" id="1563159288%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-m-e680_-h-u-m_-a-c-c-u-r-a-t-e/index.html">BME680_HUM_ACCURATE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1563159288%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1563159288%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-h-u-m_-a-c-c-u-r-a-t-e/index.html">BME680_HUM_ACCURATE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-b-m-e680_-h-u-m_-a-c-c-u-r-a-t-e/index.html">BME680_HUM_ACCURATE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1018948964%2FClasslikes%2F1436726670" anchor-label="SHT3X_HUM_ACCURATE" id="-1018948964%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1018948964%2FClasslikes%2F-1510994457" anchor-label="SHT3X_HUM_ACCURATE" id="-1018948964%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t3-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHT3X_HUM_ACCURATE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1018948964%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1018948964%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t3-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHT3X_HUM_ACCURATE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t3-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHT3X_HUM_ACCURATE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-112001219%2FClasslikes%2F1436726670" anchor-label="SI70XX_HUM_ACCURATE" id="-112001219%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-112001219%2FClasslikes%2F-1510994457" anchor-label="SI70XX_HUM_ACCURATE" id="-112001219%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-i70-x-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SI70XX_HUM_ACCURATE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-112001219%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-112001219%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-i70-x-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SI70XX_HUM_ACCURATE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-i70-x-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SI70XX_HUM_ACCURATE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="874333169%2FClasslikes%2F1436726670" anchor-label="SHTC3_HUM_ACCURATE" id="874333169%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="874333169%2FClasslikes%2F-1510994457" anchor-label="SHTC3_HUM_ACCURATE" id="874333169%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t-c3_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHTC3_HUM_ACCURATE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="874333169%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="874333169%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t-c3_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHTC3_HUM_ACCURATE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t-c3_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHTC3_HUM_ACCURATE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="172546190%2FClasslikes%2F1436726670" anchor-label="IO_CONTROL_AS_OK_ALARM" id="172546190%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="172546190%2FClasslikes%2F-1510994457" anchor-label="IO_CONTROL_AS_OK_ALARM" id="172546190%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-o_-c-o-n-t-r-o-l_-a-s_-o-k_-a-l-a-r-m/index.html">IO_CONTROL_AS_OK_ALARM</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="172546190%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="172546190%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-o_-c-o-n-t-r-o-l_-a-s_-o-k_-a-l-a-r-m/index.html">IO_CONTROL_AS_OK_ALARM</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-o_-c-o-n-t-r-o-l_-a-s_-o-k_-a-l-a-r-m/index.html">IO_CONTROL_AS_OK_ALARM</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-712454210%2FClasslikes%2F1436726670" anchor-label="SHT4X_TEMP" id="-712454210%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-712454210%2FClasslikes%2F-1510994457" anchor-label="SHT4X_TEMP" id="-712454210%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t4-x_-t-e-m-p/index.html">SHT4X_TEMP</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-712454210%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-712454210%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t4-x_-t-e-m-p/index.html">SHT4X_TEMP</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t4-x_-t-e-m-p/index.html">SHT4X_TEMP</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-232776098%2FClasslikes%2F1436726670" anchor-label="SHT4X_HUM" id="-232776098%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-232776098%2FClasslikes%2F-1510994457" anchor-label="SHT4X_HUM" id="-232776098%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t4-x_-h-u-m/index.html">SHT4X_HUM</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-232776098%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-232776098%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t4-x_-h-u-m/index.html">SHT4X_HUM</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t4-x_-h-u-m/index.html">SHT4X_HUM</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1096939235%2FClasslikes%2F1436726670" anchor-label="SHT4X_HUM_ACCURATE" id="-1096939235%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1096939235%2FClasslikes%2F-1510994457" anchor-label="SHT4X_HUM_ACCURATE" id="-1096939235%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-s-h-t4-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHT4X_HUM_ACCURATE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1096939235%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1096939235%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t4-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHT4X_HUM_ACCURATE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-s-h-t4-x_-h-u-m_-a-c-c-u-r-a-t-e/index.html">SHT4X_HUM_ACCURATE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-466796720%2FClasslikes%2F1436726670" anchor-label="LEAK_SENSOR" id="-466796720%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-466796720%2FClasslikes%2F-1510994457" anchor-label="LEAK_SENSOR" id="-466796720%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-l-e-a-k_-s-e-n-s-o-r/index.html">LEAK_SENSOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-466796720%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-466796720%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-e-a-k_-s-e-n-s-o-r/index.html">LEAK_SENSOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-e-a-k_-s-e-n-s-o-r/index.html">LEAK_SENSOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1022145276%2FClasslikes%2F1436726670" anchor-label="MAX22530" id="1022145276%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1022145276%2FClasslikes%2F-1510994457" anchor-label="MAX22530" id="1022145276%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-m-a-x22530/index.html">MAX22530</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1022145276%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1022145276%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-m-a-x22530/index.html">MAX22530</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-m-a-x22530/index.html">MAX22530</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1737354193%2FClasslikes%2F1436726670" anchor-label="ADC_SENSOR_AS_VOLTAGE" id="1737354193%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1737354193%2FClasslikes%2F-1510994457" anchor-label="ADC_SENSOR_AS_VOLTAGE" id="1737354193%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-a-d-c_-s-e-n-s-o-r_-a-s_-v-o-l-t-a-g-e/index.html">ADC_SENSOR_AS_VOLTAGE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1737354193%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1737354193%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-d-c_-s-e-n-s-o-r_-a-s_-v-o-l-t-a-g-e/index.html">ADC_SENSOR_AS_VOLTAGE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-d-c_-s-e-n-s-o-r_-a-s_-v-o-l-t-a-g-e/index.html">ADC_SENSOR_AS_VOLTAGE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="376924332%2FClasslikes%2F1436726670" anchor-label="ADC_SENSOR_AS_CURRENT" id="376924332%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="376924332%2FClasslikes%2F-1510994457" anchor-label="ADC_SENSOR_AS_CURRENT" id="376924332%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-a-d-c_-s-e-n-s-o-r_-a-s_-c-u-r-r-e-n-t/index.html">ADC_SENSOR_AS_CURRENT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="376924332%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="376924332%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-d-c_-s-e-n-s-o-r_-a-s_-c-u-r-r-e-n-t/index.html">ADC_SENSOR_AS_CURRENT</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-d-c_-s-e-n-s-o-r_-a-s_-c-u-r-r-e-n-t/index.html">ADC_SENSOR_AS_CURRENT</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1942569479%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ACC_MAJOR" id="-1942569479%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1942569479%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ACC_MAJOR" id="-1942569479%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-m-a-j-o-r/index.html">PULSE_CNT_ACC_MAJOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1942569479%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1942569479%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-m-a-j-o-r/index.html">PULSE_CNT_ACC_MAJOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-m-a-j-o-r/index.html">PULSE_CNT_ACC_MAJOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1138032907%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ACC_MINOR" id="-1138032907%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1138032907%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ACC_MINOR" id="-1138032907%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-m-i-n-o-r/index.html">PULSE_CNT_ACC_MINOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1138032907%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1138032907%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-m-i-n-o-r/index.html">PULSE_CNT_ACC_MINOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-m-i-n-o-r/index.html">PULSE_CNT_ACC_MINOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1989968039%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ACC_ELEC_MAJOR" id="1989968039%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1989968039%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ACC_ELEC_MAJOR" id="1989968039%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-e-l-e-c_-m-a-j-o-r/index.html">PULSE_CNT_ACC_ELEC_MAJOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1989968039%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1989968039%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-e-l-e-c_-m-a-j-o-r/index.html">PULSE_CNT_ACC_ELEC_MAJOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-e-l-e-c_-m-a-j-o-r/index.html">PULSE_CNT_ACC_ELEC_MAJOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1500462685%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ACC_ELEC_MINOR" id="-1500462685%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1500462685%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ACC_ELEC_MINOR" id="-1500462685%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-e-l-e-c_-m-i-n-o-r/index.html">PULSE_CNT_ACC_ELEC_MINOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1500462685%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1500462685%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-e-l-e-c_-m-i-n-o-r/index.html">PULSE_CNT_ACC_ELEC_MINOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-e-l-e-c_-m-i-n-o-r/index.html">PULSE_CNT_ACC_ELEC_MINOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="529755381%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ACC_WIDE_MAJOR" id="529755381%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="529755381%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ACC_WIDE_MAJOR" id="529755381%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-a-j-o-r/index.html">PULSE_CNT_ACC_WIDE_MAJOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="529755381%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="529755381%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-a-j-o-r/index.html">PULSE_CNT_ACC_WIDE_MAJOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-a-j-o-r/index.html">PULSE_CNT_ACC_WIDE_MAJOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1334291953%2FClasslikes%2F1436726670" anchor-label="PULSE_CNT_ACC_WIDE_MINOR" id="1334291953%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1334291953%2FClasslikes%2F-1510994457" anchor-label="PULSE_CNT_ACC_WIDE_MINOR" id="1334291953%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-i-n-o-r/index.html">PULSE_CNT_ACC_WIDE_MINOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1334291953%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1334291953%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-i-n-o-r/index.html">PULSE_CNT_ACC_WIDE_MINOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-i-n-o-r/index.html">PULSE_CNT_ACC_WIDE_MINOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="656858442%2FClasslikes%2F1436726670" anchor-label="INA23X_AS_CURRENT" id="656858442%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="656858442%2FClasslikes%2F-1510994457" anchor-label="INA23X_AS_CURRENT" id="656858442%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-n-a23-x_-a-s_-c-u-r-r-e-n-t/index.html">INA23X_AS_CURRENT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="656858442%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="656858442%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-a23-x_-a-s_-c-u-r-r-e-n-t/index.html">INA23X_AS_CURRENT</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-a23-x_-a-s_-c-u-r-r-e-n-t/index.html">INA23X_AS_CURRENT</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-909233299%2FClasslikes%2F1436726670" anchor-label="OUTPUT_CONTROL" id="-909233299%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-909233299%2FClasslikes%2F-1510994457" anchor-label="OUTPUT_CONTROL" id="-909233299%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-o-u-t-p-u-t_-c-o-n-t-r-o-l/index.html">OUTPUT_CONTROL</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-909233299%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-909233299%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-o-u-t-p-u-t_-c-o-n-t-r-o-l/index.html">OUTPUT_CONTROL</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-o-u-t-p-u-t_-c-o-n-t-r-o-l/index.html">OUTPUT_CONTROL</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1984697916%2FClasslikes%2F1436726670" anchor-label="HE10_PULSE_CNT_ACC_WIDE_MAJOR" id="-1984697916%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1984697916%2FClasslikes%2F-1510994457" anchor-label="HE10_PULSE_CNT_ACC_WIDE_MAJOR" id="-1984697916%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-h-e10_-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-a-j-o-r/index.html">HE10_PULSE_CNT_ACC_WIDE_MAJOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1984697916%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1984697916%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-h-e10_-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-a-j-o-r/index.html">HE10_PULSE_CNT_ACC_WIDE_MAJOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-h-e10_-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-a-j-o-r/index.html">HE10_PULSE_CNT_ACC_WIDE_MAJOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1180161344%2FClasslikes%2F1436726670" anchor-label="HE10_PULSE_CNT_ACC_WIDE_MINOR" id="-1180161344%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1180161344%2FClasslikes%2F-1510994457" anchor-label="HE10_PULSE_CNT_ACC_WIDE_MINOR" id="-1180161344%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-h-e10_-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-i-n-o-r/index.html">HE10_PULSE_CNT_ACC_WIDE_MINOR</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1180161344%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1180161344%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-h-e10_-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-i-n-o-r/index.html">HE10_PULSE_CNT_ACC_WIDE_MINOR</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-h-e10_-p-u-l-s-e_-c-n-t_-a-c-c_-w-i-d-e_-m-i-n-o-r/index.html">HE10_PULSE_CNT_ACC_WIDE_MINOR</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1230450401%2FClasslikes%2F1436726670" anchor-label="LTC2983_TC" id="-1230450401%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1230450401%2FClasslikes%2F-1510994457" anchor-label="LTC2983_TC" id="-1230450401%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-l-t-c2983_-t-c/index.html">LTC2983_TC</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1230450401%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1230450401%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-t-c2983_-t-c/index.html">LTC2983_TC</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-t-c2983_-t-c/index.html">LTC2983_TC</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-702085046%2FClasslikes%2F1436726670" anchor-label="LTC2983_RTD_COLD_JUNCTION" id="-702085046%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-702085046%2FClasslikes%2F-1510994457" anchor-label="LTC2983_RTD_COLD_JUNCTION" id="-702085046%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-l-t-c2983_-r-t-d_-c-o-l-d_-j-u-n-c-t-i-o-n/index.html">LTC2983_RTD_COLD_JUNCTION</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-702085046%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-702085046%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-t-c2983_-r-t-d_-c-o-l-d_-j-u-n-c-t-i-o-n/index.html">LTC2983_RTD_COLD_JUNCTION</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-t-c2983_-r-t-d_-c-o-l-d_-j-u-n-c-t-i-o-n/index.html">LTC2983_RTD_COLD_JUNCTION</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-803660355%2FClasslikes%2F1436726670" anchor-label="RELAY_AS_FLOODING" id="-803660355%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-803660355%2FClasslikes%2F-1510994457" anchor-label="RELAY_AS_FLOODING" id="-803660355%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-r-e-l-a-y_-a-s_-f-l-o-o-d-i-n-g/index.html">RELAY_AS_FLOODING</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-803660355%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-803660355%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-e-l-a-y_-a-s_-f-l-o-o-d-i-n-g/index.html">RELAY_AS_FLOODING</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-e-l-a-y_-a-s_-f-l-o-o-d-i-n-g/index.html">RELAY_AS_FLOODING</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="2066451618%2FClasslikes%2F1436726670" anchor-label="LEAK_SENSOR_AS_FLOODING" id="2066451618%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="2066451618%2FClasslikes%2F-1510994457" anchor-label="LEAK_SENSOR_AS_FLOODING" id="2066451618%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-l-e-a-k_-s-e-n-s-o-r_-a-s_-f-l-o-o-d-i-n-g/index.html">LEAK_SENSOR_AS_FLOODING</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2066451618%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2066451618%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-e-a-k_-s-e-n-s-o-r_-a-s_-f-l-o-o-d-i-n-g/index.html">LEAK_SENSOR_AS_FLOODING</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-e-a-k_-s-e-n-s-o-r_-a-s_-f-l-o-o-d-i-n-g/index.html">LEAK_SENSOR_AS_FLOODING</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="2017288303%2FClasslikes%2F1436726670" anchor-label="INA23X_AS_VOLTAGE" id="2017288303%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="2017288303%2FClasslikes%2F-1510994457" anchor-label="INA23X_AS_VOLTAGE" id="2017288303%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-n-a23-x_-a-s_-v-o-l-t-a-g-e/index.html">INA23X_AS_VOLTAGE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2017288303%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2017288303%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-a23-x_-a-s_-v-o-l-t-a-g-e/index.html">INA23X_AS_VOLTAGE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-i-n-a23-x_-a-s_-v-o-l-t-a-g-e/index.html">INA23X_AS_VOLTAGE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="2018785641%2FClasslikes%2F1436726670" anchor-label="LTC2983_RESISTANCE" id="2018785641%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="2018785641%2FClasslikes%2F-1510994457" anchor-label="LTC2983_RESISTANCE" id="2018785641%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-l-t-c2983_-r-e-s-i-s-t-a-n-c-e/index.html">LTC2983_RESISTANCE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2018785641%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2018785641%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-t-c2983_-r-e-s-i-s-t-a-n-c-e/index.html">LTC2983_RESISTANCE</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-t-c2983_-r-e-s-i-s-t-a-n-c-e/index.html">LTC2983_RESISTANCE</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="709306224%2FClasslikes%2F1436726670" anchor-label="TF02_PRO" id="709306224%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="709306224%2FClasslikes%2F-1510994457" anchor-label="TF02_PRO" id="709306224%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-t-f02_-p-r-o/index.html">TF02_PRO</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="709306224%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="709306224%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-t-f02_-p-r-o/index.html">TF02_PRO</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-t-f02_-p-r-o/index.html">TF02_PRO</a></div></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="182429510%2FClasslikes%2F1436726670" anchor-label="ADV_CNT_AS_PULSE_CNT" id="182429510%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="182429510%2FClasslikes%2F-1510994457" anchor-label="ADV_CNT_AS_PULSE_CNT" id="182429510%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-a-d-v_-c-n-t_-a-s_-p-u-l-s-e_-c-n-t/index.html">ADV_CNT_AS_PULSE_CNT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="182429510%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="182429510%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-d-v_-c-n-t_-a-s_-p-u-l-s-e_-c-n-t/index.html">ADV_CNT_AS_PULSE_CNT</a></div></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><div class="block"><a href="-a-d-v_-c-n-t_-a-s_-p-u-l-s-e_-c-n-t/index.html">ADV_CNT_AS_PULSE_CNT</a></div></div></div></div>
                 </div>
               </div>
             </div>
@@ -1138,108 +1138,108 @@
         </div>
       </div>
       <div data-togglable="PROPERTY">
-        <h2 class="">Properties</h2>
-        <div class="table"><a data-name="-99274443%2FProperties%2F1436726670" anchor-label="code" id="-99274443%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-99274443%2FProperties%2F-1510994457" anchor-label="code" id="-99274443%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="code.html"><span><span>code</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-99274443%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-99274443%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="code.html">code</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">code used to identify a sensor</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="code.html">code</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">code used to identify a sensor</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="460490824%2FProperties%2F1436726670" anchor-label="entries" id="460490824%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="460490824%2FProperties%2F-1510994457" anchor-label="entries" id="460490824%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="entries.html"><span><span>entries</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="460490824%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="460490824%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="entries.html">entries</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">EnumEntries</a><span class="token operator">&lt;</span><a href="index.html">SensorModel</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns a representation of an immutable list of all enum entries, in the order they're declared.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="entries.html">entries</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">EnumEntries</a><span class="token operator">&lt;</span><a href="index.html">SensorModel</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns a representation of an immutable list of all enum entries, in the order they're declared.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1983206557%2FProperties%2F1436726670" anchor-label="isCalibrationProcedureSupported" id="1983206557%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1983206557%2FProperties%2F-1510994457" anchor-label="isCalibrationProcedureSupported" id="1983206557%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="is-calibration-procedure-supported.html"><span>is</span><wbr></wbr><span>Calibration</span><wbr></wbr><span>Procedure</span><wbr></wbr><span><span>Supported</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1983206557%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1983206557%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="is-calibration-procedure-supported.html">isCalibrationProcedureSupported</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">true if sensor supports calibration procedure</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="is-calibration-procedure-supported.html">isCalibrationProcedureSupported</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">true if sensor supports calibration procedure</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1313978156%2FProperties%2F1436726670" anchor-label="isCalibrationSupported" id="-1313978156%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1313978156%2FProperties%2F-1510994457" anchor-label="isCalibrationSupported" id="-1313978156%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="is-calibration-supported.html"><span>is</span><wbr></wbr><span>Calibration</span><wbr></wbr><span><span>Supported</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1313978156%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1313978156%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="is-calibration-supported.html">isCalibrationSupported</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">true if sensor supports calibration</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="is-calibration-supported.html">isCalibrationSupported</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">true if sensor supports calibration</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-176151678%2FProperties%2F1436726670" anchor-label="measurementType" id="-176151678%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-176151678%2FProperties%2F-1510994457" anchor-label="measurementType" id="-176151678%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="measurement-type.html"><span>measurement</span><wbr></wbr><span><span>Type</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-176151678%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-176151678%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="measurement-type.html">measurementType</a><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.measurement/-measurement/-type/index.html">Measurement.Type</a></div><div class="brief "><p class="paragraph">measurement type supported by sensor</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="measurement-type.html">measurementType</a><span class="token operator">: </span><a href="../../pl.efento.mobile.bluetooth.measurement/-measurement/-type/index.html">Measurement.Type</a></div><div class="brief "><p class="paragraph">measurement type supported by sensor</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-372974862%2FProperties%2F1436726670" anchor-label="name" id="-372974862%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-372974862%2FProperties%2F-1510994457" anchor-label="name" id="-372974862%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-372974862%2FProperties%2F1436726670"><span><span>name</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-372974862%2FProperties%2F1436726670"></span>
+                  <div><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-372974862%2FProperties%2F-1510994457"><span><span>name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-372974862%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-372974862%2FProperties%2F1436726670">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-372974862%2FProperties%2F-1510994457">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-739389684%2FProperties%2F1436726670" anchor-label="ordinal" id="-739389684%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-739389684%2FProperties%2F-1510994457" anchor-label="ordinal" id="-739389684%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-739389684%2FProperties%2F1436726670"><span><span>ordinal</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-739389684%2FProperties%2F1436726670"></span>
+                  <div><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-739389684%2FProperties%2F-1510994457"><span><span>ordinal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-739389684%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-739389684%2FProperties%2F1436726670">ordinal</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="../../pl.efento.mobile.bluetooth.model.sensor.cellular.modemParameters/-b-c66-parameter/-parameter/-t-x_-t-i-m-e/index.html#-739389684%2FProperties%2F-1510994457">ordinal</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
                 </div>
               </div>
             </div>
@@ -1247,33 +1247,33 @@
         </div>
       </div>
       <div data-togglable="FUNCTION">
-        <h2 class="">Functions</h2>
-        <div class="table"><a data-name="-451474860%2FFunctions%2F1436726670" anchor-label="valueOf" id="-451474860%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-451474860%2FFunctions%2F-1510994457" anchor-label="valueOf" id="-451474860%2FFunctions%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="value-of.html"><span>value</span><wbr></wbr><span><span>Of</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-451474860%2FFunctions%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-451474860%2FFunctions%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="value-of.html"><span class="token function">valueOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">SensorModel</a></div><div class="brief "><p class="paragraph">Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="value-of.html"><span class="token function">valueOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">SensorModel</a></div><div class="brief "><p class="paragraph">Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="770226784%2FFunctions%2F1436726670" anchor-label="values" id="770226784%2FFunctions%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="770226784%2FFunctions%2F-1510994457" anchor-label="values" id="770226784%2FFunctions%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="values.html"><span><span>values</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="770226784%2FFunctions%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="770226784%2FFunctions%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="values.html"><span class="token function">values</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="index.html">SensorModel</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns an array containing the constants of this enum type, in the order they're declared.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="values.html"><span class="token function">values</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="index.html">SensorModel</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns an array containing the constants of this enum type, in the order they're declared.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -1284,17 +1284,21 @@
   </div>
 </div>
     <div class="footer">
-        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
-        <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
-    </div>
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2025 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

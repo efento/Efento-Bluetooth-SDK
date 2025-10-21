@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>BC660Parameters</title>
     <link href="../../../../../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../../../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "../../../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
 <script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="../../../../../../scripts/sourceset_dependencies.js" async="async"></script>
@@ -25,20 +25,18 @@
 <link href="../../../../../../styles/main.css" rel="Stylesheet">
 <link href="../../../../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../../../../styles/logo-styles.css" rel="Stylesheet">
-<link href="../../../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <link href="../../../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-<script type="text/javascript" src="../../../../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../../../../scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="../../../../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../../../../scripts/prism.js" async="async"></script>
 <script type="text/javascript" src="../../../../../../ui-kit/ui-kit.min.js" defer="defer"></script>
-<script type="text/javascript" src="../../../../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-            <a class="library-name--link" href="../../../../../../index.html">
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../../../../index.html" tabindex="1">
                     bluetooth
             </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
@@ -46,11 +44,11 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-2.0.0        </div>
+2.1.0        </div>
         <div class="navigation-controls">
-        <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":bluetooth:dokkaHtml/commonMain">common</button>
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":bluetooth/commonMain">common</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
                         data-role="dropdown-toggle"
@@ -59,16 +57,16 @@
                         aria-expanded="false"
                         aria-label="Toggle source sets"
                 ></button>
-                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
-                    <div class="dropdown--header"><span>Platform filter</span>
-                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
                             <i class="ui-kit-icon ui-kit-icon_cross"></i>
                         </button>
                     </div>
                         <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":bluetooth:dokkaHtml/commonMain"
-                                       data-filter=":bluetooth:dokkaHtml/commonMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":bluetooth/commonMain"
+                                       data-filter=":bluetooth/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
@@ -76,7 +74,7 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
+        </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
                     type="button">Switch theme
             </button>
@@ -84,48 +82,50 @@
                 API
             </div>
         </div>
-    </nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
-                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header">
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
                             <span>
                                     bluetooth
                             </span>
-                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
-                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
-                            </button>
-                        </div>
-                        <div class="sidebar--inner" id="sideMenu"></div>
-                    </ul>
-                    <div class="dropdown--overlay"></div>
-                </div>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model.sensor/SensorDeviceInfo.Modem.Parameters.BC660Parameters///PointingToDeclaration//1436726670">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model.sensor/SensorDeviceInfo.Modem.Parameters.BC660Parameters///PointingToDeclaration//-1510994457">
   <div class="breadcrumbs"><a href="../../../../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../../../../index.html">pl.efento.mobile.bluetooth.model.sensor</a><span class="delimiter">/</span><a href="../../../index.html">SensorDeviceInfo</a><span class="delimiter">/</span><a href="../../index.html">Modem</a><span class="delimiter">/</span><a href="../index.html">Parameters</a><span class="delimiter">/</span><span class="current">BC660Parameters</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>BC660Parameters</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">BC660Parameters</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>scEARFCN<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scEARNFCNOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scPCI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scCellId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scRSRP<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scRSRQ<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scRSSI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scSINR<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scBand<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scTAC<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scECL<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scTXPWR<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>opMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ncEARFCN<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ncPCI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ncRSRP<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ncRSRQ<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>sleepDuration<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>rxTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>txTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>plmnState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <a href="../index.html">SensorDeviceInfo.Modem.Parameters</a></div><p class="paragraph">Parameters for BC660 modem.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">BC660Parameters</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>scEARFCN<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scEARNFCNOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scPCI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scCellId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scRSRP<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scRSRQ<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scRSSI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scSINR<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scBand<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scTAC<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scECL<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scTXPWR<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>opMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ncEARFCN<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ncPCI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ncRSRP<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ncRSRQ<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>sleepDuration<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>rxTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>txTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>plmnState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <a href="../index.html">SensorDeviceInfo.Modem.Parameters</a></div><p class="paragraph">Parameters for BC660 modem.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
-        <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="-341505860%2FConstructors%2F1436726670" anchor-label="BC660Parameters" id="-341505860%2FConstructors%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="-341505860%2FConstructors%2F-1510994457" anchor-label="BC660Parameters" id="-341505860%2FConstructors%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-c660-parameters.html"><span><span>BC660Parameters</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-341505860%2FConstructors%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-341505860%2FConstructors%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scEARFCN<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scEARNFCNOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scPCI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scCellId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scRSRP<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scRSRQ<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scRSSI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scSINR<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scBand<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scTAC<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scECL<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scTXPWR<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">opMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ncEARFCN<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ncPCI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ncRSRP<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ncRSRQ<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">sleepDuration<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">rxTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">txTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">plmnState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scEARFCN<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scEARNFCNOffset<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scPCI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scCellId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scRSRP<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scRSRQ<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scRSSI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scSINR<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scBand<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scTAC<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scECL<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">scTXPWR<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">opMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ncEARFCN<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ncPCI<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ncRSRP<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">ncRSRQ<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">sleepDuration<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">rxTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">txTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">plmnState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -133,318 +133,318 @@
         </div>
       </div>
       <div data-togglable="PROPERTY">
-        <h2 class="">Properties</h2>
-        <div class="table"><a data-name="1545758924%2FProperties%2F1436726670" anchor-label="ncEARFCN" id="1545758924%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="1545758924%2FProperties%2F-1510994457" anchor-label="ncEARFCN" id="1545758924%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="nc-e-a-r-f-c-n.html"><span>nc</span><wbr></wbr><span><span>EARFCN</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1545758924%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1545758924%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="nc-e-a-r-f-c-n.html">ncEARFCN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Neighboring cell EARFCN. Range: 0:262143 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="nc-e-a-r-f-c-n.html">ncEARFCN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Neighboring cell EARFCN. Range: 0:262143 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-2115112163%2FProperties%2F1436726670" anchor-label="ncPCI" id="-2115112163%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-2115112163%2FProperties%2F-1510994457" anchor-label="ncPCI" id="-2115112163%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="nc-p-c-i.html"><span>nc</span><wbr></wbr><span><span>PCI</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2115112163%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2115112163%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="nc-p-c-i.html">ncPCI</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Neighboring cell PCI. Range: 0:503 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="nc-p-c-i.html">ncPCI</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Neighboring cell PCI. Range: 0:503 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1006571464%2FProperties%2F1436726670" anchor-label="ncRSRP" id="1006571464%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1006571464%2FProperties%2F-1510994457" anchor-label="ncRSRP" id="1006571464%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="nc-r-s-r-p.html"><span>nc</span><wbr></wbr><span><span>RSRP</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1006571464%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1006571464%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="nc-r-s-r-p.html">ncRSRP</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Neighboring cell RSRP in dBm. Range: -140:-44 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="nc-r-s-r-p.html">ncRSRP</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Neighboring cell RSRP in dBm. Range: -140:-44 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1037591271%2FProperties%2F1436726670" anchor-label="ncRSRQ" id="1037591271%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1037591271%2FProperties%2F-1510994457" anchor-label="ncRSRQ" id="1037591271%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="nc-r-s-r-q.html"><span>nc</span><wbr></wbr><span><span>RSRQ</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1037591271%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1037591271%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="nc-r-s-r-q.html">ncRSRQ</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Neighboring cell RSRQ in dBm. Range: -140:-44 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="nc-r-s-r-q.html">ncRSRQ</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Neighboring cell RSRQ in dBm. Range: -140:-44 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="276882968%2FProperties%2F1436726670" anchor-label="opMode" id="276882968%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="276882968%2FProperties%2F-1510994457" anchor-label="opMode" id="276882968%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="op-mode.html"><span>op</span><wbr></wbr><span><span>Mode</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="276882968%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="276882968%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="op-mode.html">opMode</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Operation mode. Range: 0:3 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="op-mode.html">opMode</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Operation mode. Range: 0:3 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1853666026%2FProperties%2F1436726670" anchor-label="plmnState" id="1853666026%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1853666026%2FProperties%2F-1510994457" anchor-label="plmnState" id="1853666026%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="plmn-state.html"><span>plmn</span><wbr></wbr><span><span>State</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1853666026%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1853666026%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="plmn-state.html">plmnState</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">PLMN state. Range: 0:2 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="plmn-state.html">plmnState</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">PLMN state. Range: 0:2 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-725400087%2FProperties%2F1436726670" anchor-label="rxTime" id="-725400087%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-725400087%2FProperties%2F-1510994457" anchor-label="rxTime" id="-725400087%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="rx-time.html"><span>rx</span><wbr></wbr><span><span>Time</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-725400087%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-725400087%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="rx-time.html">rxTime</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">RX time in seconds. Range: 0.0:214748364.7 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="rx-time.html">rxTime</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">RX time in seconds. Range: 0.0:214748364.7 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1529648201%2FProperties%2F1436726670" anchor-label="scBand" id="-1529648201%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1529648201%2FProperties%2F-1510994457" anchor-label="scBand" id="-1529648201%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-band.html"><span>sc</span><wbr></wbr><span><span>Band</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1529648201%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1529648201%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-band.html">scBand</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell band or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-band.html">scBand</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell band or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="830962959%2FProperties%2F1436726670" anchor-label="scCellId" id="830962959%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="830962959%2FProperties%2F-1510994457" anchor-label="scCellId" id="830962959%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-cell-id.html"><span>sc</span><wbr></wbr><span>Cell</span><wbr></wbr><span><span>Id</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="830962959%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="830962959%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-cell-id.html">scCellId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell ID as hex string. Range: 1:268435456 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-cell-id.html">scCellId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell ID as hex string. Range: 1:268435456 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-782691119%2FProperties%2F1436726670" anchor-label="scEARFCN" id="-782691119%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-782691119%2FProperties%2F-1510994457" anchor-label="scEARFCN" id="-782691119%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-e-a-r-f-c-n.html"><span>sc</span><wbr></wbr><span><span>EARFCN</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-782691119%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-782691119%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-e-a-r-f-c-n.html">scEARFCN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell EARFCN. Range: 0:262143 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-e-a-r-f-c-n.html">scEARFCN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell EARFCN. Range: 0:262143 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="100863778%2FProperties%2F1436726670" anchor-label="scEARNFCNOffset" id="100863778%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="100863778%2FProperties%2F-1510994457" anchor-label="scEARNFCNOffset" id="100863778%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-e-a-r-n-f-c-n-offset.html"><span>sc</span><wbr></wbr><span><span>EARNFCNOffset</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="100863778%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="100863778%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-e-a-r-n-f-c-n-offset.html">scEARNFCNOffset</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell EARNFCN offset. Values -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, -0.5, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 or <code class="lang-kotlin">null</code> when invalid or unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-e-a-r-n-f-c-n-offset.html">scEARNFCNOffset</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell EARNFCN offset. Values -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, -0.5, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 or <code class="lang-kotlin">null</code> when invalid or unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="836629888%2FProperties%2F1436726670" anchor-label="scECL" id="836629888%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="836629888%2FProperties%2F-1510994457" anchor-label="scECL" id="836629888%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-e-c-l.html"><span>sc</span><wbr></wbr><span><span>ECL</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="836629888%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="836629888%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-e-c-l.html">scECL</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell ECL. Range: 0:2 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-e-c-l.html">scECL</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell ECL. Range: 0:2 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-2058531528%2FProperties%2F1436726670" anchor-label="scPCI" id="-2058531528%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-2058531528%2FProperties%2F-1510994457" anchor-label="scPCI" id="-2058531528%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-p-c-i.html"><span>sc</span><wbr></wbr><span><span>PCI</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2058531528%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2058531528%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-p-c-i.html">scPCI</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-p-c-i.html">scPCI</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1534396147%2FProperties%2F1436726670" anchor-label="scRSRP" id="-1534396147%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1534396147%2FProperties%2F-1510994457" anchor-label="scRSRP" id="-1534396147%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-r-s-r-p.html"><span>sc</span><wbr></wbr><span><span>RSRP</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1534396147%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1534396147%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-r-s-r-p.html">scRSRP</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell RSRP in dBm. Range: -140:-44 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-r-s-r-p.html">scRSRP</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell RSRP in dBm. Range: -140:-44 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1503376340%2FProperties%2F1436726670" anchor-label="scRSRQ" id="-1503376340%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1503376340%2FProperties%2F-1510994457" anchor-label="scRSRQ" id="-1503376340%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-r-s-r-q.html"><span>sc</span><wbr></wbr><span><span>RSRQ</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1503376340%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1503376340%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-r-s-r-q.html">scRSRQ</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell RSRQ in dB. Range: -20:-3 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-r-s-r-q.html">scRSRQ</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell RSRQ in dB. Range: -20:-3 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-789920779%2FProperties%2F1436726670" anchor-label="scRSSI" id="-789920779%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-789920779%2FProperties%2F-1510994457" anchor-label="scRSSI" id="-789920779%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-r-s-s-i.html"><span>sc</span><wbr></wbr><span><span>RSSI</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-789920779%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-789920779%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-r-s-s-i.html">scRSSI</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell RSSI in dBm. Range: -110:-3 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-r-s-s-i.html">scRSSI</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell RSSI in dBm. Range: -110:-3 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-2078345454%2FProperties%2F1436726670" anchor-label="scSINR" id="-2078345454%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-2078345454%2FProperties%2F-1510994457" anchor-label="scSINR" id="-2078345454%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-s-i-n-r.html"><span>sc</span><wbr></wbr><span><span>SINR</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2078345454%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2078345454%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-s-i-n-r.html">scSINR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell SINR in dB. Range: -10:30 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-s-i-n-r.html">scSINR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell SINR in dB. Range: -10:30 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-891857288%2FProperties%2F1436726670" anchor-label="scTAC" id="-891857288%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-891857288%2FProperties%2F-1510994457" anchor-label="scTAC" id="-891857288%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-t-a-c.html"><span>sc</span><wbr></wbr><span><span>TAC</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-891857288%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-891857288%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-t-a-c.html">scTAC</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell TAC. Range: 0:65536 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-t-a-c.html">scTAC</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell TAC. Range: 0:65536 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1935029081%2FProperties%2F1436726670" anchor-label="scTXPWR" id="-1935029081%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1935029081%2FProperties%2F-1510994457" anchor-label="scTXPWR" id="-1935029081%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sc-t-x-p-w-r.html"><span>sc</span><wbr></wbr><span><span>TXPWR</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1935029081%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1935029081%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-t-x-p-w-r.html">scTXPWR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell TX power in dBm. Range -44.0:23.0 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sc-t-x-p-w-r.html">scTXPWR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Serving cell TX power in dBm. Range -44.0:23.0 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1024780979%2FProperties%2F1436726670" anchor-label="sleepDuration" id="1024780979%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1024780979%2FProperties%2F-1510994457" anchor-label="sleepDuration" id="1024780979%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sleep-duration.html"><span>sleep</span><wbr></wbr><span><span>Duration</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1024780979%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1024780979%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sleep-duration.html">sleepDuration</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Sleep duration seconds. Range: 0.0:214748364.7 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="sleep-duration.html">sleepDuration</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Sleep duration seconds. Range: 0.0:214748364.7 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-23800213%2FProperties%2F1436726670" anchor-label="txTime" id="-23800213%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-23800213%2FProperties%2F-1510994457" anchor-label="txTime" id="-23800213%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="tx-time.html"><span>tx</span><wbr></wbr><span><span>Time</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-23800213%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-23800213%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="tx-time.html">txTime</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">TX time in seconds. Range: 0.0:214748364.7 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="tx-time.html">txTime</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">TX time in seconds. Range: 0.0:214748364.7 or <code class="lang-kotlin">null</code> if unknown.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -455,17 +455,21 @@
   </div>
 </div>
     <div class="footer">
-        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
-        <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
-    </div>
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2025 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

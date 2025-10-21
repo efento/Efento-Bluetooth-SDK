@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>LTC2983TC</title>
     <link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
 <script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async="async"></script>
@@ -25,20 +25,18 @@
 <link href="../../../../styles/main.css" rel="Stylesheet">
 <link href="../../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../../styles/logo-styles.css" rel="Stylesheet">
-<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-<script type="text/javascript" src="../../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="../../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../../scripts/prism.js" async="async"></script>
 <script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer="defer"></script>
-<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-            <a class="library-name--link" href="../../../../index.html">
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../../index.html" tabindex="1">
                     bluetooth
             </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
@@ -46,11 +44,11 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-2.0.0        </div>
+2.1.0        </div>
         <div class="navigation-controls">
-        <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":bluetooth:dokkaHtml/commonMain">common</button>
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":bluetooth/commonMain">common</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
                         data-role="dropdown-toggle"
@@ -59,16 +57,16 @@
                         aria-expanded="false"
                         aria-label="Toggle source sets"
                 ></button>
-                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
-                    <div class="dropdown--header"><span>Platform filter</span>
-                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
                             <i class="ui-kit-icon ui-kit-icon_cross"></i>
                         </button>
                     </div>
                         <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":bluetooth:dokkaHtml/commonMain"
-                                       data-filter=":bluetooth:dokkaHtml/commonMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":bluetooth/commonMain"
+                                       data-filter=":bluetooth/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
@@ -76,7 +74,7 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
+        </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
                     type="button">Switch theme
             </button>
@@ -84,48 +82,50 @@
                 API
             </div>
         </div>
-    </nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
-                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header">
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
                             <span>
                                     bluetooth
                             </span>
-                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
-                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
-                            </button>
-                        </div>
-                        <div class="sidebar--inner" id="sideMenu"></div>
-                    </ul>
-                    <div class="dropdown--overlay"></div>
-                </div>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model.sensor.calibration/CalibrationParameters.LTC2983TC///PointingToDeclaration//1436726670">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth.model.sensor.calibration/CalibrationParameters.LTC2983TC///PointingToDeclaration//-1510994457">
   <div class="breadcrumbs"><a href="../../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../../index.html">pl.efento.mobile.bluetooth.model.sensor.calibration</a><span class="delimiter">/</span><a href="../index.html">CalibrationParameters</a><span class="delimiter">/</span><span class="current">LTC2983TC</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>LTC2983TC</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">LTC2983TC</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>thermocoupleType<span class="token operator">: </span><a href="-thermocouple-type/index.html">CalibrationParameters.LTC2983TC.ThermocoupleType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>openCircuitCurrent<span class="token operator">: </span><a href="-open-circuit-current/index.html">CalibrationParameters.LTC2983TC.OpenCircuitCurrent</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>extraDelayMultiplier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ptSensorType<span class="token operator">: </span><a href="-p-t-type/index.html">CalibrationParameters.LTC2983TC.PTType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>curveType<span class="token operator">: </span><a href="-curve-type/index.html">CalibrationParameters.LTC2983TC.CurveType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>excitationCurrent<span class="token operator">: </span><a href="-excitation-current/index.html">CalibrationParameters.LTC2983TC.ExcitationCurrent</a></span></span><span class="token punctuation">)</span> : <a href="../index.html">CalibrationParameters</a></div><p class="paragraph">Represents calibration parameters for <a href="../../../pl.efento.mobile.bluetooth.model.sensor/-sensor-model/-l-t-c2983_-t-c/index.html">SensorModel.LTC2983_TC</a> temperature sensor.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">LTC2983TC</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>thermocoupleType<span class="token operator">: </span><a href="-thermocouple-type/index.html">CalibrationParameters.LTC2983TC.ThermocoupleType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>openCircuitCurrent<span class="token operator">: </span><a href="-open-circuit-current/index.html">CalibrationParameters.LTC2983TC.OpenCircuitCurrent</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>extraDelayMultiplier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ptSensorType<span class="token operator">: </span><a href="-p-t-type/index.html">CalibrationParameters.LTC2983TC.PTType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>curveType<span class="token operator">: </span><a href="-curve-type/index.html">CalibrationParameters.LTC2983TC.CurveType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>excitationCurrent<span class="token operator">: </span><a href="-excitation-current/index.html">CalibrationParameters.LTC2983TC.ExcitationCurrent</a></span></span><span class="token punctuation">)</span> : <a href="../index.html">CalibrationParameters</a></div><p class="paragraph">Represents calibration parameters for <a href="../../../pl.efento.mobile.bluetooth.model.sensor/-sensor-model/-l-t-c2983_-t-c/index.html">SensorModel.LTC2983_TC</a> temperature sensor.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
-        <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="1160619665%2FConstructors%2F1436726670" anchor-label="LTC2983TC" id="1160619665%2FConstructors%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="1160619665%2FConstructors%2F-1510994457" anchor-label="LTC2983TC" id="1160619665%2FConstructors%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-l-t-c2983-t-c.html"><span><span>LTC2983TC</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1160619665%2FConstructors%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1160619665%2FConstructors%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">thermocoupleType<span class="token operator">: </span><a href="-thermocouple-type/index.html">CalibrationParameters.LTC2983TC.ThermocoupleType</a><span class="token punctuation">, </span></span><span class="parameter ">openCircuitCurrent<span class="token operator">: </span><a href="-open-circuit-current/index.html">CalibrationParameters.LTC2983TC.OpenCircuitCurrent</a><span class="token punctuation">, </span></span><span class="parameter ">extraDelayMultiplier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">ptSensorType<span class="token operator">: </span><a href="-p-t-type/index.html">CalibrationParameters.LTC2983TC.PTType</a><span class="token punctuation">, </span></span><span class="parameter ">curveType<span class="token operator">: </span><a href="-curve-type/index.html">CalibrationParameters.LTC2983TC.CurveType</a><span class="token punctuation">, </span></span><span class="parameter ">excitationCurrent<span class="token operator">: </span><a href="-excitation-current/index.html">CalibrationParameters.LTC2983TC.ExcitationCurrent</a></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">thermocoupleType<span class="token operator">: </span><a href="-thermocouple-type/index.html">CalibrationParameters.LTC2983TC.ThermocoupleType</a><span class="token punctuation">, </span></span><span class="parameter ">openCircuitCurrent<span class="token operator">: </span><a href="-open-circuit-current/index.html">CalibrationParameters.LTC2983TC.OpenCircuitCurrent</a><span class="token punctuation">, </span></span><span class="parameter ">extraDelayMultiplier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">ptSensorType<span class="token operator">: </span><a href="-p-t-type/index.html">CalibrationParameters.LTC2983TC.PTType</a><span class="token punctuation">, </span></span><span class="parameter ">curveType<span class="token operator">: </span><a href="-curve-type/index.html">CalibrationParameters.LTC2983TC.CurveType</a><span class="token punctuation">, </span></span><span class="parameter ">excitationCurrent<span class="token operator">: </span><a href="-excitation-current/index.html">CalibrationParameters.LTC2983TC.ExcitationCurrent</a></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -133,78 +133,78 @@
         </div>
       </div>
       <div data-togglable="TYPE">
-        <h2 class="">Types</h2>
-        <div class="table"><a data-name="-1855455229%2FClasslikes%2F1436726670" anchor-label="CurveType" id="-1855455229%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-1855455229%2FClasslikes%2F-1510994457" anchor-label="CurveType" id="-1855455229%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-curve-type/index.html"><span>Curve</span><wbr></wbr><span><span>Type</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1855455229%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1855455229%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-curve-type/index.html">CurveType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-curve-type/index.html">CalibrationParameters.LTC2983TC.CurveType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Curve types for temperature calibration. This is used to determine the type of temperature curve used for the cold junction compensation.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-curve-type/index.html">CurveType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-curve-type/index.html">CalibrationParameters.LTC2983TC.CurveType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Curve types for temperature calibration. This is used to determine the type of temperature curve used for the cold junction compensation.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1779860237%2FClasslikes%2F1436726670" anchor-label="ExcitationCurrent" id="1779860237%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1779860237%2FClasslikes%2F-1510994457" anchor-label="ExcitationCurrent" id="1779860237%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-excitation-current/index.html"><span>Excitation</span><wbr></wbr><span><span>Current</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1779860237%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1779860237%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-excitation-current/index.html">ExcitationCurrent</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-excitation-current/index.html">CalibrationParameters.LTC2983TC.ExcitationCurrent</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Excitation current in µA. This is the current used to excite the PT sensor for the cold junction compensation.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-excitation-current/index.html">ExcitationCurrent</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-excitation-current/index.html">CalibrationParameters.LTC2983TC.ExcitationCurrent</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Excitation current in µA. This is the current used to excite the PT sensor for the cold junction compensation.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1232090396%2FClasslikes%2F1436726670" anchor-label="OpenCircuitCurrent" id="1232090396%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1232090396%2FClasslikes%2F-1510994457" anchor-label="OpenCircuitCurrent" id="1232090396%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-open-circuit-current/index.html"><span>Open</span><wbr></wbr><span>Circuit</span><wbr></wbr><span><span>Current</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1232090396%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1232090396%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-open-circuit-current/index.html">OpenCircuitCurrent</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-open-circuit-current/index.html">CalibrationParameters.LTC2983TC.OpenCircuitCurrent</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Open circuit current in µA. This is the current that flows through the thermocouple when it is open-circuited. It is used to detect an open circuit condition in the thermocouple.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-open-circuit-current/index.html">OpenCircuitCurrent</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-open-circuit-current/index.html">CalibrationParameters.LTC2983TC.OpenCircuitCurrent</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Open circuit current in µA. This is the current that flows through the thermocouple when it is open-circuited. It is used to detect an open circuit condition in the thermocouple.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-891058152%2FClasslikes%2F1436726670" anchor-label="PTType" id="-891058152%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-891058152%2FClasslikes%2F-1510994457" anchor-label="PTType" id="-891058152%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-p-t-type/index.html"><span><span>PTType</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-891058152%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-891058152%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-p-t-type/index.html">PTType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-p-t-type/index.html">CalibrationParameters.LTC2983TC.PTType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">PT sensor types. This is used to determine the type of PT sensor used for the cold junction compensation.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-p-t-type/index.html">PTType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-p-t-type/index.html">CalibrationParameters.LTC2983TC.PTType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">PT sensor types. This is used to determine the type of PT sensor used for the cold junction compensation.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1832370969%2FClasslikes%2F1436726670" anchor-label="ThermocoupleType" id="1832370969%2FClasslikes%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1832370969%2FClasslikes%2F-1510994457" anchor-label="ThermocoupleType" id="1832370969%2FClasslikes%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-thermocouple-type/index.html"><span>Thermocouple</span><wbr></wbr><span><span>Type</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1832370969%2FClasslikes%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1832370969%2FClasslikes%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-thermocouple-type/index.html">ThermocoupleType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-thermocouple-type/index.html">CalibrationParameters.LTC2983TC.ThermocoupleType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Thermocouple types. The thermocouple type is used to determine the temperature range and sensitivity of the thermocouple.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-thermocouple-type/index.html">ThermocoupleType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-thermocouple-type/index.html">CalibrationParameters.LTC2983TC.ThermocoupleType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Thermocouple types. The thermocouple type is used to determine the temperature range and sensitivity of the thermocouple.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -212,93 +212,93 @@
         </div>
       </div>
       <div data-togglable="PROPERTY">
-        <h2 class="">Properties</h2>
-        <div class="table"><a data-name="-869887696%2FProperties%2F1436726670" anchor-label="curveType" id="-869887696%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-869887696%2FProperties%2F-1510994457" anchor-label="curveType" id="-869887696%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="curve-type.html"><span>curve</span><wbr></wbr><span><span>Type</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-869887696%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-869887696%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="curve-type.html">curveType</a><span class="token operator">: </span><a href="-curve-type/index.html">CalibrationParameters.LTC2983TC.CurveType</a></div><div class="brief "><p class="paragraph">The type of temperature curve used for calibration. This is required only when the cold junction is configured in the factory configuration</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="curve-type.html">curveType</a><span class="token operator">: </span><a href="-curve-type/index.html">CalibrationParameters.LTC2983TC.CurveType</a></div><div class="brief "><p class="paragraph">The type of temperature curve used for calibration. This is required only when the cold junction is configured in the factory configuration</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1810621242%2FProperties%2F1436726670" anchor-label="excitationCurrent" id="1810621242%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="1810621242%2FProperties%2F-1510994457" anchor-label="excitationCurrent" id="1810621242%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="excitation-current.html"><span>excitation</span><wbr></wbr><span><span>Current</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1810621242%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1810621242%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="excitation-current.html">excitationCurrent</a><span class="token operator">: </span><a href="-excitation-current/index.html">CalibrationParameters.LTC2983TC.ExcitationCurrent</a></div><div class="brief "><p class="paragraph">The excitation current in µA. This is required only when the cold junction is configured in the factory configuration.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="excitation-current.html">excitationCurrent</a><span class="token operator">: </span><a href="-excitation-current/index.html">CalibrationParameters.LTC2983TC.ExcitationCurrent</a></div><div class="brief "><p class="paragraph">The excitation current in µA. This is required only when the cold junction is configured in the factory configuration.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="603478317%2FProperties%2F1436726670" anchor-label="extraDelayMultiplier" id="603478317%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="603478317%2FProperties%2F-1510994457" anchor-label="extraDelayMultiplier" id="603478317%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="extra-delay-multiplier.html"><span>extra</span><wbr></wbr><span>Delay</span><wbr></wbr><span><span>Multiplier</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="603478317%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="603478317%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="extra-delay-multiplier.html">extraDelayMultiplier</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The extra delay multiplier in x100µs. Range 0 : 255 If excessive RC time constants are present in external sensor circuits (large bypass capacitors used for thermistors or RTDs), it is possible to increase the settling time between current source excitation and MUX switching.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="extra-delay-multiplier.html">extraDelayMultiplier</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The extra delay multiplier in x100µs. Range 0 : 255 If excessive RC time constants are present in external sensor circuits (large bypass capacitors used for thermistors or RTDs), it is possible to increase the settling time between current source excitation and MUX switching.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-461913049%2FProperties%2F1436726670" anchor-label="openCircuitCurrent" id="-461913049%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-461913049%2FProperties%2F-1510994457" anchor-label="openCircuitCurrent" id="-461913049%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="open-circuit-current.html"><span>open</span><wbr></wbr><span>Circuit</span><wbr></wbr><span><span>Current</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-461913049%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-461913049%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="open-circuit-current.html">openCircuitCurrent</a><span class="token operator">: </span><a href="-open-circuit-current/index.html">CalibrationParameters.LTC2983TC.OpenCircuitCurrent</a></div><div class="brief "><p class="paragraph">The open circuit current in µA.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="open-circuit-current.html">openCircuitCurrent</a><span class="token operator">: </span><a href="-open-circuit-current/index.html">CalibrationParameters.LTC2983TC.OpenCircuitCurrent</a></div><div class="brief "><p class="paragraph">The open circuit current in µA.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1643679767%2FProperties%2F1436726670" anchor-label="ptSensorType" id="-1643679767%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="-1643679767%2FProperties%2F-1510994457" anchor-label="ptSensorType" id="-1643679767%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="pt-sensor-type.html"><span>pt</span><wbr></wbr><span>Sensor</span><wbr></wbr><span><span>Type</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1643679767%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1643679767%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="pt-sensor-type.html">ptSensorType</a><span class="token operator">: </span><a href="-p-t-type/index.html">CalibrationParameters.LTC2983TC.PTType</a></div><div class="brief "><p class="paragraph">The type of PT sensor used. This is required only when the cold junction is configured in the factory configuration.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="pt-sensor-type.html">ptSensorType</a><span class="token operator">: </span><a href="-p-t-type/index.html">CalibrationParameters.LTC2983TC.PTType</a></div><div class="brief "><p class="paragraph">The type of PT sensor used. This is required only when the cold junction is configured in the factory configuration.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="948938212%2FProperties%2F1436726670" anchor-label="thermocoupleType" id="948938212%2FProperties%2F1436726670" data-filterable-set=":bluetooth:dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":bluetooth:dokkaHtml/commonMain" data-filterable-set=":bluetooth:dokkaHtml/commonMain">
+<a data-name="948938212%2FProperties%2F-1510994457" anchor-label="thermocoupleType" id="948938212%2FProperties%2F-1510994457" data-filterable-set=":bluetooth/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="thermocouple-type.html"><span>thermocouple</span><wbr></wbr><span><span>Type</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="948938212%2FProperties%2F1436726670"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="948938212%2FProperties%2F-1510994457"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="thermocouple-type.html">thermocoupleType</a><span class="token operator">: </span><a href="-thermocouple-type/index.html">CalibrationParameters.LTC2983TC.ThermocoupleType</a></div><div class="brief "><p class="paragraph">The type of thermocouple used.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="thermocouple-type.html">thermocoupleType</a><span class="token operator">: </span><a href="-thermocouple-type/index.html">CalibrationParameters.LTC2983TC.ThermocoupleType</a></div><div class="brief "><p class="paragraph">The type of thermocouple used.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -309,17 +309,21 @@
   </div>
 </div>
     <div class="footer">
-        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
-        <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
-    </div>
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2025 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
