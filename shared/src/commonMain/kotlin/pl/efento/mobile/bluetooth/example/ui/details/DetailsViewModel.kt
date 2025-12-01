@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 import pl.efento.mobile.bluetooth.EfentoBluetooth
 import pl.efento.mobile.bluetooth.example.service.navigation.Destination
 import pl.efento.mobile.bluetooth.example.service.navigation.NavigationService
-import pl.efento.mobile.bluetooth.example.util.logging.logging
 import pl.efento.mobile.bluetooth.example.util.time.timestampToString
 
 internal class DetailsViewModel(
