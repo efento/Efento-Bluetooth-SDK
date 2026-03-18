@@ -44,15 +44,15 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-2.1.3        </div>
+2.2.0        </div>
         <div class="navigation-controls">
         <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
                 <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
                         data-filter=":bluetooth/androidMain">android</button>
                 <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":bluetooth/appleMain">apple</button>
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
                         data-filter=":bluetooth/commonMain">common</button>
-                <button class="platform-tag platform-selector native-like" data-active="" aria-pressed="true"
-                        data-filter=":bluetooth/iosMain">ios</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
                         data-role="dropdown-toggle"
@@ -77,18 +77,18 @@
                         </li>
                         <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
                             <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":bluetooth/appleMain"
+                                       data-filter=":bluetooth/appleMain"/>
+                                <span class="checkbox--icon"></span>
+                                apple
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
                                 <input type="checkbox" class="checkbox--input" id=":bluetooth/commonMain"
                                        data-filter=":bluetooth/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
-                            </label>
-                        </li>
-                        <li role="option" class="dropdown--option platform-selector-option native-like" tabindex="0">
-                            <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":bluetooth/iosMain"
-                                       data-filter=":bluetooth/iosMain"/>
-                                <span class="checkbox--icon"></span>
-                                ios
                             </label>
                         </li>
                 </ul>
@@ -124,13 +124,13 @@
         </nav>
         <div id="resizer" class="resizer" data-item-type="BAR"></div>
         <div id="main" data-item-type="SECTION" role="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth/ApplicationContext///PointingToDeclaration//-766249681">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="bluetooth::pl.efento.mobile.bluetooth/ApplicationContext///PointingToDeclaration//108705201">
   <div class="breadcrumbs"><a href="../../../index.html">bluetooth</a><span class="delimiter">/</span><a href="../index.html">pl.efento.mobile.bluetooth</a><span class="delimiter">/</span><span class="current">ApplicationContext</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Application</span><wbr></wbr><span><span>Context</span></span></h1>
     <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-      <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":bluetooth/androidMain" data-filterable-set=":bluetooth/androidMain" data-active="" data-toggle=":bluetooth/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain" data-toggle=":bluetooth/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":bluetooth/iosMain" data-filterable-set=":bluetooth/iosMain" data-toggle=":bluetooth/iosMain">ios</button></div>
-<div class="content sourceset-dependent-content" data-togglable=":bluetooth/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">typealias </span><a href="index.html">ApplicationContext</a><span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/android/app/Application.html">Application</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">class </span><a href="index.html">ApplicationContext</a></div><p class="paragraph">Application context is required to support bluetooth functionality on certain platforms.</p></div><div class="content sourceset-dependent-content" data-togglable=":bluetooth/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">typealias </span><a href="index.html">ApplicationContext</a><span class="token operator"> = </span><a href="../-ios-no-op-application-context/index.html">IosNoOpApplicationContext</a></div></div>    </div>
+      <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":bluetooth/androidMain" data-filterable-set=":bluetooth/androidMain" data-active="" data-toggle=":bluetooth/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":bluetooth/appleMain" data-filterable-set=":bluetooth/appleMain" data-toggle=":bluetooth/appleMain">apple</button><button class="platform-bookmark" data-filterable-current=":bluetooth/commonMain" data-filterable-set=":bluetooth/commonMain" data-toggle=":bluetooth/commonMain">common</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":bluetooth/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">typealias </span><a href="index.html">ApplicationContext</a><span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/android/app/Application.html">Application</a></div></div><div class="content sourceset-dependent-content" data-togglable=":bluetooth/appleMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">typealias </span><a href="index.html">ApplicationContext</a><span class="token operator"> = </span><a href="../-ios-no-op-application-context/index.html">IosNoOpApplicationContext</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":bluetooth/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">class </span><a href="index.html">ApplicationContext</a></div><p class="paragraph">Application context is required to support bluetooth functionality on certain platforms.</p></div>    </div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"></div>
