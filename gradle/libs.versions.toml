@@ -8,7 +8,7 @@ kotlin = "2.2.21"
 jetbrains-compose-plugin = "1.10.2"
 
 #Bluetooth
-bluetooth = "2.1.3"
+bluetooth = "2.2.0"
 
 # Kotlin
 coroutines = "1.10.2"
