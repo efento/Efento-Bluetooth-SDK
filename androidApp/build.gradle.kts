@@ -29,10 +29,11 @@ android {
         }
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
+        }
     }
-
     dependencies {
         implementation(projects.example.shared)
     }

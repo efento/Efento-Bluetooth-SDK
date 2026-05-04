@@ -4,21 +4,21 @@ compileSdk = "36"
 targetSdk = "36"
 minSdk = "23"
 agp = "8.13.2"
-kotlin = "2.2.21"
-jetbrains-compose-plugin = "1.10.2"
+kotlin = "2.3.20"
+jetbrains-compose-plugin = "1.10.3"
 
 #Bluetooth
-bluetooth = "2.2.0"
+bluetooth = "2.3.0"
 
 # Kotlin
 coroutines = "1.10.2"
 
 # Koin
-koin = "4.1.1"
+koin = "4.2.1"
 
 # Android
-androidx-activity-compose = "1.12.4"
-androidx-lifecycle = "2.9.6"
+androidx-activity-compose = "1.13.0"
+androidx-lifecycle = "2.10.0"
 
 [libraries]
 #Bluetooth
