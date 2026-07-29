@@ -1,4 +1,4 @@
-// swift-tools-version: 5.3
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -13,8 +13,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "EfentoBluetoothSDK",
-            url: "https://github.com/efento/Efento-Bluetooth-SDK/releases/download/2.3.0/EfentoBluetoothSDK.xcframework.zip",
-            checksum: "f8d238e0a77014829e6a94caa86baaae294873744dbf2881b797d135c96f20e0"
+            url: "https://github.com/efento/Efento-Bluetooth-SDK/releases/download/2.4.0/EfentoBluetoothSDK.xcframework.zip",
+            checksum: "445d457bcc1b3c0055ea387af1c4f6278bf29ae3bc76d766aee107776a283834"
         )
     ]
 )

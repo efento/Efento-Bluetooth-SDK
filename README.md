@@ -23,7 +23,7 @@ Include the Library Dependency
 
 ```groovy
 commonMain.dependencies {
-    implementation("pl.efento.mobile:bluetooth:2.3.0")
+    implementation("pl.efento.mobile:bluetooth:2.4.0")
 }
 ```
 
